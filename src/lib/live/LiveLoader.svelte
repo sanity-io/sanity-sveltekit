@@ -54,21 +54,8 @@
     refreshOnReconnect?: boolean;
   } = $props();
 
-  const {
-    projectId,
-    dataset,
-    apiHost,
-    apiVersion: _apiVersion,
-    useProjectHostname,
-    requestTagPrefix
-  } = client.config();
-
-  let apiVersion = _apiVersion;
-  // @TODO temporarily handle the Live Draft Content API only being available on vX
-  if (typeof browserToken === 'string' && previewEnabled) {
-    // if (true) {
-    apiVersion = 'vX';
-  }
+  const { projectId, dataset, apiHost, apiVersion, useProjectHostname, requestTagPrefix } =
+    client.config();
 
   const liveClient = createClient({
     projectId,
