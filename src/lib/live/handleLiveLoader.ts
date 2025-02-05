@@ -1,9 +1,9 @@
-import type { ClientPerspective, SanityClient } from '@sanity/client';
+import type { ClientPerspective, QueryOptions, SanityClient } from '@sanity/client';
 import { perspectiveCookieName } from '@sanity/preview-url-secret/constants';
 import type { Handle, RequestEvent } from '@sveltejs/kit';
 import { unstable__serverClient } from '../query/store/createQueryStore';
 import type { SanityFetch } from '../types';
-import { perspectiveCookieEndpoint } from '../constants';
+import { lastLiveEventCookieName, perspectiveCookieEndpoint } from '../constants';
 import { sanitizePerspective } from '../util';
 
 /**
@@ -36,6 +36,17 @@ export interface HandleLiveLoaderConfig {
   stega?: boolean;
 }
 
+const getLastLiveEvent = (event: RequestEvent) => {
+  try {
+    const lastLiveEventCookie = event.cookies.get(lastLiveEventCookieName);
+    const [id, lastTags] = lastLiveEventCookie?.split('|') || [];
+    const tags = lastTags?.split(',') || [];
+    return { id, tags };
+  } catch {
+    return undefined;
+  }
+};
+
 const defineSanityFetch = ({
   client,
   stegaEnabled,
@@ -51,44 +62,45 @@ const defineSanityFetch = ({
   const clientToken = clientConfig.token;
   const studioUrlDefined = typeof clientConfig.stega.studioUrl !== 'undefined';
 
-  return async (event, options) => {
-    const { query, params, stega: _stega, tag = 'svelte-loader.fetch' } = options;
+  return async (event, _options) => {
+    const { query, params, stega: _stega, tag = 'svelte-loader.fetch' } = _options;
 
+    const perspective = (_options.perspective || _perspective) as ClientPerspective;
+    const useCdn = perspective === 'published';
     const stega =
       _stega ?? (stegaEnabled && studioUrlDefined && event.locals.sanity?.previewEnabled);
+    const token = perspective !== 'published' && serverToken ? serverToken : clientToken;
 
-    const perspective = options.perspective || _perspective;
-
-    const useCdn = perspective === 'published';
-    // const revalidate =
-    //   (fetchOptions?.revalidate ?? process.env['NODE_ENV'] === 'production') ? false : undefined
+    const options: QueryOptions = {
+      cacheMode: useCdn ? 'noStale' : undefined,
+      filterResponse: false,
+      perspective,
+      resultSourceMap: 'withKeyArraySelector',
+      stega,
+      token,
+      useCdn
+    };
 
     const { syncTags } = await client.fetch(query, await params, {
-      filterResponse: false,
-      perspective: perspective as ClientPerspective,
-      stega: false,
+      ...options,
+      resultSourceMap: false,
       returnQuery: false,
-      // next: {revalidate, tags: ['sanity:fetch-sync-tags']},
-      useCdn,
-      cacheMode: useCdn ? 'noStale' : undefined,
+      stega: false,
       tag: [tag, 'fetch-sync-tags'].filter(Boolean).join('.')
     });
 
-    // const tags = ['sanity', ...(syncTags?.map((tag) => `sanity:${tag}`) || [])]
     const tags = syncTags?.map((tag) => `sanity:${tag}`) || [];
     tags.forEach((tag) => event.depends(tag));
 
-    const token = perspective !== 'published' && serverToken ? serverToken : clientToken;
+    const lastLiveEvent = getLastLiveEvent(event);
+    if (lastLiveEvent) {
+      const tagsSet = new Set(lastLiveEvent.tags);
+      if (tags.some((tag) => tagsSet.has(tag))) {
+        options.lastLiveEventId = lastLiveEvent.id;
+      }
+    }
 
-    const { result, resultSourceMap } = await client.fetch(query, await params, {
-      filterResponse: false,
-      perspective: perspective as ClientPerspective,
-      stega,
-      token,
-      useCdn,
-      cacheMode: useCdn ? 'noStale' : undefined,
-      tag
-    });
+    const { result, resultSourceMap } = await client.fetch(query, await params, options);
 
     return { data: result, sourceMap: resultSourceMap || null, tags };
   };
@@ -143,6 +155,56 @@ const handlePerspectiveCookie = async (event: RequestEvent) => {
   });
 };
 
+const parseLastEvent = (
+  payload?: string
+): {
+  tags: string[];
+  eventId: string;
+} => {
+  if (!payload) {
+    return { eventId: '', tags: [] };
+  }
+
+  const parsed = JSON.parse(payload);
+  if (
+    parsed &&
+    typeof parsed === 'object' &&
+    'tags' in parsed &&
+    'eventId' in parsed &&
+    Array.isArray(parsed.tags) &&
+    parsed.tags.every((tag: unknown) => typeof tag === 'string') &&
+    typeof parsed.eventId === 'string'
+  ) {
+    return parsed;
+  }
+
+  throw new Error();
+};
+
+const handleLastEventCookie = async (event: RequestEvent) => {
+  try {
+    const lastEvent = parseLastEvent(await event.request.text());
+    const devMode = process.env['NODE_ENV'] === 'development';
+
+    return new Response(null, {
+      headers: {
+        'Set-Cookie': event.cookies.serialize(lastLiveEventCookieName, JSON.stringify(lastEvent), {
+          httpOnly: true,
+          maxAge: 5,
+          sameSite: devMode ? 'lax' : 'none',
+          secure: !devMode,
+          path: '/'
+        })
+      }
+    });
+  } catch {
+    return new Response(JSON.stringify({ error: 'Invalid request payload' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+};
+
 /**
  * @public
  */
@@ -158,6 +220,11 @@ export const handleLiveLoader = (config?: HandleLiveLoaderConfig): Handle => {
     // Handle requests for setting the perspective cookie
     if (event.url.pathname === perspectiveCookieEndpoint && event.request.method === 'POST') {
       return handlePerspectiveCookie(event);
+    }
+
+    // Handle requests for setting the perspective cookie
+    if (event.url.pathname === '/last' && event.request.method === 'POST') {
+      return handleLastEventCookie(event);
     }
 
     // Set `sanity` properties on the `event.locals` object

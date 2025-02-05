@@ -20,9 +20,10 @@
   } = $props();
 </script>
 
+{@render children?.()}
+
 {#if enabled}
   {#await import('./VisualEditingComponent.svelte') then { default: VisualEditing }}
-    {@render children?.()}
     <VisualEditing {zIndex} {refresh} />
   {/await}
 {/if}

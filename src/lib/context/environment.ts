@@ -1,4 +1,4 @@
-import { readonly, writable } from 'svelte/store';
+import { getContext, setContext } from 'svelte';
 /**
  *
  * @public
@@ -11,14 +11,18 @@ export type DraftEnvironment =
   | 'static'
   | 'unknown';
 
-const environmentStore = writable<DraftEnvironment>('checking');
+export const environmentContextKey = Symbol('environment');
 
 /**
  * @public
  */
-export const environment = readonly(environmentStore);
+export function setEnvironment(environment: { value: DraftEnvironment }) {
+  setContext(environmentContextKey, environment);
+}
 
 /**
  * @public
  */
-export const setEnvironment = environmentStore.set;
+export function getEnvironment(): { value: DraftEnvironment } {
+  return getContext(environmentContextKey);
+}

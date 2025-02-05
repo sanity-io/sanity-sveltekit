@@ -1,19 +1,23 @@
 import type { ClientPerspective } from '@sanity/client';
-import { readonly, writable } from 'svelte/store';
+import { getContext, setContext } from 'svelte';
+
+const perspectiveContextKey = Symbol('perspective');
 
 /**
- *
  * @public
  */
 export type DraftPerspective = 'checking' | 'unknown' | ClientPerspective;
 
-const perspectiveStore = writable<DraftPerspective>('checking');
+/**
+ * @public
+ */
+export function setPerspective(perspective: { value: DraftPerspective }) {
+  setContext(perspectiveContextKey, perspective);
+}
 
 /**
  * @public
  */
-export const perspective = readonly(perspectiveStore);
-/**
- * @public
- */
-export const setPerspective = perspectiveStore.set;
+export function getPerspective(): { value: DraftPerspective } {
+  return getContext(perspectiveContextKey);
+}

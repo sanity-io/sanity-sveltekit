@@ -15,8 +15,8 @@
   let navigate: HistoryAdapterNavigate | undefined;
   let navigatingFromUpdate = false;
 
-  onMount(() =>
-    enableVisualEditing({
+  onMount(() => {
+    const disable = enableVisualEditing({
       zIndex,
       refresh: (payload) => {
         function refreshDefault() {
@@ -50,8 +50,9 @@
           }
         }
       }
-    })
-  );
+    });
+    return () => disable();
+  });
 
   afterNavigate(async ({ to, complete }) => {
     if (navigate && to && !navigatingFromUpdate) {

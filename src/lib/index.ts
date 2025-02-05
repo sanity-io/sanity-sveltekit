@@ -12,9 +12,9 @@ export { handleQueryLoader, type HandleQueryLoaderConfig } from './query/handleQ
 export { loadQuery, setServerClient, useLiveMode, useQuery } from './query/store/createQueryStore';
 
 // Context
-export { environment, setEnvironment, type DraftEnvironment } from './context/environment';
-export { perspective, setPerspective, type DraftPerspective } from './context/perspective';
-export { isPreviewing, setPreviewing } from './context/preview';
+export { getEnvironment, setEnvironment, type DraftEnvironment } from './context/environment';
+export { getPerspective, setPerspective, type DraftPerspective } from './context/perspective';
+export { getIsPreviewing, setIsPreviewing } from './context/previewing';
 
 // Preview
 export { default as PreviewMode } from './preview/PreviewMode.svelte';

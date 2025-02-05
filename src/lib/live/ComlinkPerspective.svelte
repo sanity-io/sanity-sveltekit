@@ -1,16 +1,19 @@
 <script lang="ts">
   import { invalidateAll } from '$app/navigation';
   import { perspectiveCookieEndpoint } from '$lib/constants';
-  import { setEnvironment } from '$lib/context/environment';
   import { createNode, createNodeMachine } from '@sanity/comlink';
   import {
     createCompatibilityActors,
-    isMaybePresentation,
-    isMaybePreviewWindow,
     type LoaderControllerMsg,
     type LoaderNodeMsg
   } from '@sanity/presentation-comlink';
   import { onMount } from 'svelte';
+
+  const {
+    onConnect
+  }: {
+    onConnect: () => void;
+  } = $props();
 
   /**
    * Handle perspective messages: set the cookie with the new value and call invalidateAll
@@ -47,12 +50,10 @@
 
     comlink.on('loader/perspective', handlePerspectiveChange);
 
-    if (isMaybePresentation()) {
-      comlink.onStatus(() => {
-        setEnvironment(isMaybePreviewWindow() ? 'presentation-window' : 'presentation-iframe');
-      }, 'connected');
-    }
+    comlink.onStatus(onConnect, 'connected');
 
-    return comlink.start();
+    const unsubscribe = comlink.start();
+
+    return unsubscribe;
   });
 </script>

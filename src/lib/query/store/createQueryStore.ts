@@ -5,7 +5,7 @@ import {
 import type { ContentSourceMap, SanityClient } from '@sanity/client';
 import { defineStudioUrlStore } from './defineStudioUrlStore';
 import { defineUseLiveMode } from './defineUseLiveMode';
-import { defineUseQuery, type UseQuery } from './defineUseQuery.svelte';
+import { defineUseQuery, type UseQuery } from './defineUseQuery';
 import type { LoadQuery, UseLiveMode } from '../../types';
 
 /**

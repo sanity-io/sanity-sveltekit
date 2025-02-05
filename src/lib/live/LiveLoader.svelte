@@ -8,17 +8,22 @@
     type LiveEventWelcome,
     type SanityClient
   } from '@sanity/client';
-  import { isMaybePresentation, isMaybePreviewIframe } from '@sanity/presentation-comlink';
-  import { browser } from '$app/environment';
+  import {
+    isMaybePresentation,
+    isMaybePreviewIframe,
+    isMaybePreviewWindow
+  } from '@sanity/presentation-comlink';
+  import { browser as isBrowser } from '$app/environment';
   import { invalidate, invalidateAll } from '$app/navigation';
-  import { onMount } from 'svelte';
-  import { setEnvironment } from '../context/environment';
-  import { setPerspective } from '../context/perspective';
+  import { onMount, type Snippet } from 'svelte';
+  import { setEnvironment, type DraftEnvironment } from '../context/environment';
+  import { setPerspective, type DraftPerspective } from '../context/perspective';
   import { isCorsOriginError } from '../util';
   import ComlinkPerspective from './ComlinkPerspective.svelte';
   import RefreshOnFocus from './RefreshOnFocus.svelte';
   import RefreshOnReconnect from './RefreshOnReconnect.svelte';
   import RefreshOnMount from './RefreshOnMount.svelte';
+  import { lastLiveEventCookieName } from '$lib/constants';
 
   const handleError = (error: unknown): void => {
     if (isCorsOriginError(error)) {
@@ -36,15 +41,17 @@
 
   const {
     browserToken,
+    children,
     client,
     onError = handleError,
     previewEnabled = false,
     previewPerspective,
-    refreshOnFocus = browser ? isMaybePreviewIframe() : false,
+    refreshOnFocus = isBrowser ? isMaybePreviewIframe() : false,
     refreshOnMount = false,
     refreshOnReconnect = true
   }: {
     browserToken?: string;
+    children: Snippet;
     client: SanityClient;
     onError?: (error: unknown) => void;
     previewEnabled?: boolean;
@@ -75,7 +82,7 @@
   onMount(() => {
     const includeDrafts = !!browserToken;
     const tag = 'svelte-loader.live';
-    const handleLiveEvent = (
+    const handleLiveEvent = async (
       event: LiveEventMessage | LiveEventRestart | LiveEventWelcome | LiveEventReconnect
     ) => {
       if (process.env.NODE_ENV !== 'production' && event.type === 'welcome') {
@@ -89,8 +96,19 @@
               : 'automatic revalidation of published content'
         );
       } else if (event.type === 'message') {
-        for (const _tag of event.tags) {
-          const tag = `sanity:${_tag}`;
+        const devMode = process.env['NODE_ENV'] === 'development';
+        // Set a cookie with the last live event id and tags, this will be sent
+        // when `invalidate` is called, and can be read by the server load
+        // function
+        document.cookie = [
+          `${lastLiveEventCookieName}=${event.id}|${event.tags.join(',')}`,
+          `max-age=5`,
+          `path=/`,
+          `${!devMode ? 'secure; samesite=none' : 'samesite=lax'}`
+        ].join('; ');
+
+        const tags = event.tags.map((tag) => `sanity:${tag}`);
+        for (const tag of tags) {
           invalidate(tag);
         }
       } else if (event.type === 'restart') {
@@ -109,34 +127,49 @@
   /**
    * Set the perspective based on the preview state
    */
+  const perspective = $state<{ value: DraftPerspective }>({
+    value: 'checking'
+  });
+  setPerspective(perspective);
   $effect(() => {
     if (previewEnabled && previewPerspective) {
-      setPerspective(previewPerspective);
+      perspective.value = previewPerspective;
     } else {
-      setPerspective('unknown');
+      perspective.value = 'unknown';
     }
   });
 
   /**
    * Set the environment based on the browser and the preview state
    */
+  let environment = $state<{ value: DraftEnvironment }>({ value: 'checking' });
+  setEnvironment(environment);
+
   $effect(() => {
     if (!isMaybePresentation()) {
       if (browserToken) {
-        setEnvironment('live');
+        environment.value = 'live';
       } else if (previewEnabled) {
-        setEnvironment('static');
+        environment.value = 'static';
       } else {
-        setEnvironment('unknown');
+        environment.value = 'unknown';
       }
     }
   });
+
+  const onComlinkConnect = () => {
+    if (isMaybePresentation()) {
+      environment.value = isMaybePreviewWindow() ? 'presentation-window' : 'presentation-iframe';
+    }
+  };
 </script>
 
 {#if previewEnabled}
-  <ComlinkPerspective />
+  <ComlinkPerspective onConnect={onComlinkConnect} />
 {:else}
   {#if refreshOnFocus}<RefreshOnFocus />{/if}
   {#if refreshOnMount}<RefreshOnMount />{/if}
   {#if refreshOnReconnect}<RefreshOnReconnect />{/if}
 {/if}
+
+{@render children?.()}

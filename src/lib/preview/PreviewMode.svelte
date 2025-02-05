@@ -1,16 +1,10 @@
 <script lang="ts">
-  import { setPreviewing } from '../context/preview';
-  import type { Snippet } from 'svelte';
+  import { type Snippet } from 'svelte';
+  import { setIsPreviewing } from '../context/previewing';
 
-  const { children, enabled = true }: { children?: Snippet; enabled?: boolean } = $props();
+  const { children, enabled = true }: { children: Snippet; enabled?: boolean } = $props();
 
-  setPreviewing(enabled);
-
-  $effect(() => {
-    setPreviewing(enabled);
-  });
+  setIsPreviewing(enabled);
 </script>
 
-{#if enabled}
-  {@render children?.()}
-{/if}
+{@render children?.()}
