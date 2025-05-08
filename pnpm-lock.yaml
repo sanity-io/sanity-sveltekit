@@ -16,16 +16,16 @@ importers:
         version: 3.0.1
       '@sanity/core-loader':
         specifier: ^1.7.32
-        version: 1.7.32(@sanity/types@3.74.1(@types/react@19.0.8))
+        version: 1.7.32(@sanity/types@3.88.1(@types/react@19.0.8))
       '@sanity/presentation-comlink':
         specifier: ^1.0.4
-        version: 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
+        version: 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
       '@sanity/preview-url-secret':
         specifier: ^2.1.4
         version: 2.1.4(@sanity/client@6.27.2)
       '@sanity/visual-editing':
         specifier: ^2.12.14
-        version: 2.12.14(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(svelte@5.19.9)
+        version: 2.12.14(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(svelte@5.19.9)
       fast-deep-equal:
         specifier: ^3.1.3
         version: 3.1.3
@@ -37,8 +37,8 @@ importers:
         specifier: ^9.19.0
         version: 9.19.0
       '@sanity/types':
-        specifier: ^3.74.1
-        version: 3.74.1(@types/react@19.0.8)
+        specifier: ^3.88.1
+        version: 3.88.1(@types/react@19.0.8)
       '@sveltejs/adapter-auto':
         specifier: ^4.0.0
         version: 4.0.0(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))
@@ -446,6 +446,10 @@ packages:
     resolution: {integrity: sha512-x5KaN5atPnEFa3GGSH3YKSAYh1MAECvEs9o+NSLd5W19imxvSxPquQBv0Q60Zdsg6iaTJPAAa79Ak5Xyg2FHvA==}
     engines: {node: '>=14.18'}
 
+  '@sanity/client@7.1.0':
+    resolution: {integrity: sha512-AQ9NV2iXSGKlWFywxT1bnLKUfyq6GnZvY0KJLZiob/12faOoWHXYOF/m1qevpahXaw0le2ytUfCbvwZMYZfH4g==}
+    engines: {node: '>=20'}
+
   '@sanity/comlink@3.0.1':
     resolution: {integrity: sha512-I1F57GKL69xoJUF9/4XTMvXFJZ7BnaFmTBIaiRvXaovJEZ677p5f+UkURPG/dd9L63+OnTV0SNmhTjIIzNexdw==}
     engines: {node: '>=18'}
@@ -482,8 +486,8 @@ packages:
     peerDependencies:
       '@sanity/client': ^6.27.2
 
-  '@sanity/types@3.74.1':
-    resolution: {integrity: sha512-VjV2ZrGXJFYAReoYZ/ea/lMATSqM6utfkYn7mxRm+S6b7lBRaTwQ5uvG2dlbUNjaKGJ2YmrWLh9872hIB94AKw==}
+  '@sanity/types@3.88.1':
+    resolution: {integrity: sha512-LtgcdqiIVrrOBpO2fv51wognxS1cAtp7qPQHBRyvOhbDMgpwpu+kCvDtr6Y7J++0wZia2QFRyj1exFuvwMHdxQ==}
     peerDependencies:
       '@types/react': 18 || 19
 
@@ -1840,18 +1844,26 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  '@sanity/client@7.1.0':
+    dependencies:
+      '@sanity/eventsource': 5.0.2
+      get-it: 8.6.7
+      rxjs: 7.8.1
+    transitivePeerDependencies:
+      - debug
+
   '@sanity/comlink@3.0.1':
     dependencies:
       rxjs: 7.8.1
       uuid: 11.0.5
       xstate: 5.19.2
 
-  '@sanity/core-loader@1.7.32(@sanity/types@3.74.1(@types/react@19.0.8))':
+  '@sanity/core-loader@1.7.32(@sanity/types@3.88.1(@types/react@19.0.8))':
     dependencies:
       '@sanity/client': 6.27.2
       '@sanity/comlink': 3.0.1
-      '@sanity/presentation-comlink': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
-      '@sanity/visual-editing-csm': 2.0.2(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
+      '@sanity/presentation-comlink': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
+      '@sanity/visual-editing-csm': 2.0.2(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
     transitivePeerDependencies:
       - '@sanity/types'
       - debug
@@ -1879,11 +1891,11 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@sanity/presentation-comlink@1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))':
+  '@sanity/presentation-comlink@1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))':
     dependencies:
       '@sanity/client': 6.27.2
       '@sanity/comlink': 3.0.1
-      '@sanity/visual-editing-types': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
+      '@sanity/visual-editing-types': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
     transitivePeerDependencies:
       - '@sanity/types'
 
@@ -1892,9 +1904,9 @@ snapshots:
       '@sanity/client': 6.27.2
       '@sanity/uuid': 3.0.2
 
-  '@sanity/types@3.74.1(@types/react@19.0.8)':
+  '@sanity/types@3.88.1(@types/react@19.0.8)':
     dependencies:
-      '@sanity/client': 6.27.2
+      '@sanity/client': 7.1.0
       '@types/react': 19.0.8
     transitivePeerDependencies:
       - debug
@@ -1904,27 +1916,27 @@ snapshots:
       '@types/uuid': 8.3.4
       uuid: 8.3.2
 
-  '@sanity/visual-editing-csm@2.0.2(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))':
+  '@sanity/visual-editing-csm@2.0.2(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))':
     dependencies:
       '@sanity/client': 6.27.2
-      '@sanity/visual-editing-types': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
+      '@sanity/visual-editing-types': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
       valibot: 0.31.1
     transitivePeerDependencies:
       - '@sanity/types'
 
-  '@sanity/visual-editing-types@1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))':
+  '@sanity/visual-editing-types@1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))':
     dependencies:
       '@sanity/client': 6.27.2
     optionalDependencies:
-      '@sanity/types': 3.74.1(@types/react@19.0.8)
+      '@sanity/types': 3.88.1(@types/react@19.0.8)
 
-  '@sanity/visual-editing@2.12.14(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(svelte@5.19.9)':
+  '@sanity/visual-editing@2.12.14(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))(@sveltejs/kit@2.17.1(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(svelte@5.19.9)(vite@6.1.0(@types/node@22.13.1)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(svelte@5.19.9)':
     dependencies:
       '@sanity/comlink': 3.0.1
       '@sanity/mutate': 0.11.0-canary.4(xstate@5.19.2)
-      '@sanity/presentation-comlink': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
+      '@sanity/presentation-comlink': 1.0.4(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
       '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2)
-      '@sanity/visual-editing-csm': 2.0.2(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
+      '@sanity/visual-editing-csm': 2.0.2(@sanity/client@6.27.2)(@sanity/types@3.88.1(@types/react@19.0.8))
       '@vercel/stega': 0.1.2
       get-random-values-esm: 1.0.2
       react: 19.0.0
