@@ -2,10 +2,7 @@
   import {
     createClient,
     type ClientPerspective,
-    type LiveEventMessage,
-    type LiveEventReconnect,
-    type LiveEventRestart,
-    type LiveEventWelcome,
+    type LiveEvent,
     type SanityClient
   } from '@sanity/client';
   import {
@@ -82,9 +79,7 @@
   onMount(() => {
     const includeDrafts = !!browserToken;
     const tag = 'svelte-loader.live';
-    const handleLiveEvent = async (
-      event: LiveEventMessage | LiveEventRestart | LiveEventWelcome | LiveEventReconnect
-    ) => {
+    const handleLiveEvent = async (event: LiveEvent) => {
       if (process.env.NODE_ENV !== 'production' && event.type === 'welcome') {
         // eslint-disable-next-line no-console
         console.info(
