@@ -1,6 +1,10 @@
 {
   "name": "@sanity/sveltekit",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sanity-io/sanity-sveltekit.git"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && npm run prepack",
