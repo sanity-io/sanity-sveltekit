@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>sanity-io/renovate-config"],
+  "ignorePresets": [":ignoreModulesAndTests", "github>sanity-io/renovate-config:group-non-major"],
+  "baseBranches": ["$default"],
+  "packageRules": [
+    {
+      "description": "Enable automerge with GitHub merge queues (note that this doesn't bypass required checks and code reviews)",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "rangeStrategy": "bump"
+    }
+  ]
+}
