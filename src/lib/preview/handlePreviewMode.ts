@@ -129,10 +129,9 @@ const setLocals = ({
   }
 
   event.locals.sanity = event.locals.sanity ?? {};
-  event.locals.sanity = {
-    client,
-    previewEnabled
-  };
+
+  event.locals.sanity.client = client;
+  event.locals.sanity.previewEnabled = previewEnabled;
 };
 
 /**

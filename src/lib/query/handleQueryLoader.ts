@@ -48,6 +48,7 @@ const setLocals = ({
   const previewEnabled = event.locals.sanity?.previewEnabled;
 
   event.locals.sanity = event.locals.sanity ?? {};
+
   event.locals.sanity.loadQuery = defineLoadQuery({
     previewEnabled,
     loadQuery,
