@@ -1,5 +1,6 @@
 // Visual Editing
 export { default as VisualEditing } from './visual-editing/VisualEditing.svelte';
+export * from './createDataAttribute';
 
 // Live Content API
 export { default as LiveLoader } from './live/LiveLoader.svelte';
