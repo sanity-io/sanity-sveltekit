@@ -27,3 +27,6 @@ export { optimisticActor } from './optimistic/optimisticActor';
 
 // Types
 export type { SanityLocals, VisualEditingProps } from './types';
+
+// Studio
+export { default as SanityStudio } from './studio/SanityStudio.svelte';
