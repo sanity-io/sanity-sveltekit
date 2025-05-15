@@ -4,7 +4,7 @@
   "release-type": "node",
   "plugins": ["node-workspace"],
   "packages": {
-    ".": {
+    "packages/sveltekit": {
       "package-name": "@sanity/sveltekit"
     }
   }
