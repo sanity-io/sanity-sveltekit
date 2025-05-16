@@ -21,7 +21,7 @@
   import RefreshOnReconnect from './RefreshOnReconnect.svelte';
   import RefreshOnMount from './RefreshOnMount.svelte';
   import { lastLiveEventCookieName } from '$lib/constants';
-  import { setLoader, type LoaderType } from '$lib/context/loader';
+  import { setLoader } from '$lib/context/loader';
 
   const handleError = (error: unknown): void => {
     if (isCorsOriginError(error)) {
