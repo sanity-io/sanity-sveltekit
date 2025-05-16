@@ -21,6 +21,7 @@
   import RefreshOnReconnect from './RefreshOnReconnect.svelte';
   import RefreshOnMount from './RefreshOnMount.svelte';
   import { lastLiveEventCookieName } from '$lib/constants';
+  import { setLoader, type LoaderType } from '$lib/context/loader';
 
   const handleError = (error: unknown): void => {
     if (isCorsOriginError(error)) {
@@ -126,6 +127,9 @@
     value: 'checking'
   });
   setPerspective(perspective);
+
+  setLoader({ value: 'live' });
+
   $effect(() => {
     if (previewEnabled && previewPerspective) {
       perspective.value = previewPerspective;

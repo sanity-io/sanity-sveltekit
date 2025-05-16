@@ -16,6 +16,7 @@ export { loadQuery, setServerClient, useLiveMode, useQuery } from './query/store
 export { getEnvironment, setEnvironment, type DraftEnvironment } from './context/environment';
 export { getPerspective, setPerspective, type DraftPerspective } from './context/perspective';
 export { getIsPreviewing, setIsPreviewing } from './context/previewing';
+export { getLoader, setLoader } from './context/loader';
 
 // Preview
 export { default as PreviewMode } from './preview/PreviewMode.svelte';
