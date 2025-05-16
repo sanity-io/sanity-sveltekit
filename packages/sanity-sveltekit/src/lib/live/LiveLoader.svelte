@@ -112,12 +112,14 @@
       }
     };
 
-    const { unsubscribe } = liveClient.live.events({ includeDrafts, tag }).subscribe({
+    const subscription = liveClient.live.events({ includeDrafts, tag }).subscribe({
       next: handleLiveEvent,
       error: onError
     });
 
-    return unsubscribe;
+    return () => {
+      subscription.unsubscribe();
+    };
   });
 
   /**
