@@ -20,6 +20,11 @@ export interface HandleLiveLoaderConfig {
    */
   serverToken?: string;
   /**
+   * Optional. This token is shared with the browser, and should only have access to query published documents.
+   * It is used to setup a `Live Draft Content` EventSource connection, and enables live previewing drafts stand-alone, outside of Presentation Tool.
+   */
+  browserToken?: string;
+  /**
    * Fetch options used by `sanityFetch`
    */
   fetchOptions?: {
@@ -107,11 +112,13 @@ const defineSanityFetch = ({
 };
 
 const setLocals = ({
+  browserToken,
   client,
   event,
   serverToken,
   stegaEnabled
 }: {
+  browserToken?: string;
   client: SanityClient;
   event: RequestEvent;
   serverToken?: string;
@@ -126,6 +133,7 @@ const setLocals = ({
     : 'published';
 
   event.locals.sanity = event.locals.sanity ?? {};
+  event.locals.sanity.browserToken = event.locals.sanity?.previewEnabled ? browserToken : undefined;
 
   event.locals.sanity.previewPerspective = perspective;
   event.locals.sanity.fetch = defineSanityFetch({
@@ -209,10 +217,29 @@ const handleLastEventCookie = async (event: RequestEvent) => {
  * @public
  */
 export const handleLiveLoader = (config?: HandleLiveLoaderConfig): Handle => {
-  const { client: configClient, serverToken, stega: stegaEnabled = true } = config || {};
+  const {
+    client: configClient,
+    serverToken,
+    browserToken,
+    stega: stegaEnabled = true
+  } = config || {};
 
   const _client = configClient || unstable__serverClient.instance;
   if (!_client) throw new Error('No client instance provided to handleLiveLoader');
+
+  if (process.env.NODE_ENV !== 'production' && !serverToken) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'No `serverToken` provided to `handleLiveLoader`. This means that only published content will be fetched and respond to live events'
+    );
+  }
+
+  if (process.env.NODE_ENV !== 'production' && !browserToken) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'No `browserToken` provided to `handleLiveLoader`. This means that live previewing drafts will only work when using the Presentation Tool in your Sanity Studio. To support live previewing drafts stand-alone, provide a `browserToken`. It is shared with the browser so it should only have Viewer rights or lower'
+    );
+  }
 
   const client = _client.withConfig({ allowReconfigure: false, useCdn: false });
 
@@ -229,6 +256,7 @@ export const handleLiveLoader = (config?: HandleLiveLoaderConfig): Handle => {
 
     // Set `sanity` properties on the `event.locals` object
     setLocals({
+      browserToken,
       client,
       event,
       serverToken,

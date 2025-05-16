@@ -34,10 +34,30 @@ export interface VisualEditingProps extends Omit<VisualEditingOptions, 'history'
  */
 export interface SanityLocals {
   sanity: {
+    /**
+     * The token used for receiving draft content updates. You can safely pass
+     * this value to client as it will only be set when preview mode is enabled.
+     */
+    browserToken: string | undefined;
+    /**
+     * A Sanity client instance configured for visual editing.
+     */
     client: SanityClient;
+    /**
+     * The fetch method used internally by `sanityFetch`.
+     */
     fetch: SanityFetch;
+    /**
+     * The method used to fetch data on the server if using query loaders.
+     */
     loadQuery: LoadQuery;
+    /**
+     * Helper property to check if preview mode is currently enabled.
+     */
     previewEnabled: boolean;
+    /**
+     * Helper property to check if the current preview perspective.
+     */
     previewPerspective: ClientPerspective;
   };
 }
