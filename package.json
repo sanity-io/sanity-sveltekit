@@ -5,12 +5,13 @@
   "scripts": {
     "build": "turbo build --filter=./packages/*",
     "dev": "turbo dev",
-    "format": "turbo format",
+    "format": "prettier --cache --write .",
     "lint": "turbo lint",
     "predev": "turbo build",
-    "prepare": "turbo prepare",
+    "prepare": "pnpm prepare",
+    "lint:fix": "pnpm lint -- --fix",
     "test": "turbo test",
-    "typegen": "turbo typegen"
+    "typegen": "pnpm typegen"
   },
   "devDependencies": {
     "@sanity/prettier-config": "^1.0.3",

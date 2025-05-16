@@ -10,8 +10,8 @@
       "persistent": true
     },
     "format": {},
-    "lint": {},
-    "prepare": {},
-    "typegen": {}
+    "lint": {
+      "outputLogs": "errors-only"
+    }
   }
 }
