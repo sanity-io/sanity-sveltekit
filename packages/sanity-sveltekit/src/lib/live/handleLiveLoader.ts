@@ -15,7 +15,7 @@ export interface HandleLiveLoaderConfig {
    */
   client?: SanityClient;
   /**
-   * Optional. If provided then the token needs to have permissions to query documents with `drafts.` prefixes in order for `perspective: 'previewDrafts'` to work.
+   * Optional. If provided then the token needs to have permissions to query documents with `drafts.` prefixes in order for `perspective: 'drafts'` to work.
    * This token is not shared with the browser.
    */
   serverToken?: string;
@@ -118,11 +118,11 @@ const setLocals = ({
   stegaEnabled?: boolean;
 }) => {
   // If previewing, use the sanitized perspective from the preview cookie or
-  // fall back to `previewDrafts` if no cookie is present. If not previewing,
+  // fall back to `drafts` if no cookie is present. If not previewing,
   // always use the `published` perspective.
   const perspectiveCookie = event.cookies.get(perspectiveCookieName);
   const perspective = event.locals.sanity?.previewEnabled
-    ? sanitizePerspective(perspectiveCookie, 'previewDrafts')
+    ? sanitizePerspective(perspectiveCookie, 'drafts')
     : 'published';
 
   event.locals.sanity = event.locals.sanity ?? {};

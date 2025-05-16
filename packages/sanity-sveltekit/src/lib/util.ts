@@ -10,7 +10,7 @@ export type { CorsOriginError };
 /** @internal */
 export function sanitizePerspective(
   _perspective: unknown,
-  fallback: 'previewDrafts' | 'published'
+  fallback: 'drafts' | 'published'
 ): Exclude<ClientPerspective, 'raw'> {
   const perspective =
     typeof _perspective === 'string' && _perspective.includes(',')
@@ -37,8 +37,8 @@ export function getPerspective(
     perspective ??
     (isPreviewing
       ? cookieValue
-        ? sanitizePerspective(cookieValue, 'previewDrafts')
-        : 'previewDrafts'
+        ? sanitizePerspective(cookieValue, 'drafts')
+        : 'drafts'
       : 'published')
   );
 }

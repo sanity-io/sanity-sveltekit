@@ -79,7 +79,7 @@ export const createQueryStore = (options: CreateQueryStoreOptions): QueryStore =
     }
     if (!unstable__serverClient.canPreviewDrafts) {
       throw new Error(
-        `You cannot use "previewDrafts" unless you set a "token" in the "client" instance passed to "setServerClient".`
+        `You cannot use "drafts" unless you set a "token" in the "client" instance passed to "setServerClient".`
       );
     }
 

@@ -113,7 +113,7 @@ const setLocals = ({
   const previewEnabled = event.cookies.get(previewCookieName) === previewSecret;
 
   // Set default perspective and useCdn based on preview status
-  const perspective = previewEnabled ? 'previewDrafts' : 'published';
+  const perspective = previewEnabled ? 'drafts' : 'published';
   const useCdn = previewEnabled ? false : true;
 
   const client = providedClient.withConfig({
