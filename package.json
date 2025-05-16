@@ -8,6 +8,7 @@
     "format": "turbo format",
     "lint": "turbo lint",
     "predev": "turbo build",
+    "prepare": "turbo prepare",
     "test": "turbo test",
     "typegen": "turbo typegen"
   },
