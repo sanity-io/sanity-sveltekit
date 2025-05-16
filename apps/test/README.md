@@ -1,0 +1,1 @@
+# Sanity + SvelteKit Test Application
