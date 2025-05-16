@@ -12,6 +12,8 @@
     "format": {},
     "lint": {
       "outputLogs": "errors-only"
-    }
+    },
+    "prepare": {},
+    "typegen": {}
   }
 }

@@ -8,10 +8,10 @@
     "format": "prettier --cache --write .",
     "lint": "turbo lint",
     "predev": "turbo build",
-    "prepare": "pnpm prepare",
+    "prepare": "turbo prepare",
     "lint:fix": "pnpm lint -- --fix",
     "test": "turbo test",
-    "typegen": "pnpm typegen"
+    "typegen": "turbo typegen"
   },
   "devDependencies": {
     "@sanity/prettier-config": "^1.0.3",
