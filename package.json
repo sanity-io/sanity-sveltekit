@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "build": "turbo build --filter=./packages/*",
-    "predev": "turbo build",
     "dev": "turbo dev",
+    "format": "turbo format",
     "lint": "turbo lint",
+    "predev": "turbo build",
     "test": "turbo test",
     "typegen": "turbo typegen"
   },

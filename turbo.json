@@ -5,13 +5,11 @@
     "build": {
       "dependsOn": ["^build"]
     },
-    "clean": {
-      "cache": false
-    },
     "dev": {
       "cache": false,
       "persistent": true
     },
+    "format": {},
     "lint": {},
     "typegen": {}
   }
