@@ -149,7 +149,7 @@ importers:
         specifier: ^3.5.1
         version: 3.9.0(eslint@9.27.0(jiti@2.4.2))(svelte@5.33.4)
       globals:
-        specifier: ^16.1.0
+        specifier: ^16.2.0
         version: 16.2.0
       publint:
         specifier: ^0.3.12
