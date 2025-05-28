@@ -17,7 +17,7 @@
     "@sanity/prettier-config": "^1.0.3",
     "dotenv-cli": "^8.0.0",
     "prettier": "^3.5.3",
-    "prettier-plugin-packagejson": "2.5.11",
+    "prettier-plugin-packagejson": "2.5.14",
     "prettier-plugin-svelte": "^3.3.3",
     "turbo": "^2.5.3"
   },
