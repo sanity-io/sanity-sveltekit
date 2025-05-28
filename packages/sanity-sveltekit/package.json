@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@sanity/client": "^7.1.0",
-    "@sanity/comlink": "^3.0.3",
+    "@sanity/comlink": "^3.0.4",
     "@sanity/core-loader": "^1.8.8",
     "@sanity/presentation-comlink": "^1.0.19",
     "@sanity/preview-url-secret": "^2.1.11",
