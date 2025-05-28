@@ -97,7 +97,7 @@ importers:
         specifier: ^7.1.0
         version: 7.2.1(debug@4.4.0)
       '@sanity/comlink':
-        specifier: ^3.0.3
+        specifier: ^3.0.4
         version: 3.0.4
       '@sanity/core-loader':
         specifier: ^1.8.8
