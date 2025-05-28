@@ -4,31 +4,14 @@
   import { onMount } from 'svelte';
   import type { VisualEditingProps } from '../types';
 
-  const {
-    refresh,
-    zIndex
-  }: {
-    refresh?: VisualEditingProps['refresh'];
-    zIndex?: VisualEditingProps['zIndex'];
-  } = $props();
+  const { components, plugins, refresh, zIndex }: VisualEditingProps = $props();
 
   let navigate: HistoryAdapterNavigate | undefined;
   let navigatingFromUpdate = false;
 
   onMount(() => {
     const disable = enableVisualEditing({
-      zIndex,
-      refresh: (payload) => {
-        function refreshDefault() {
-          if (payload.source === 'mutation' && payload.livePreviewEnabled) {
-            return false;
-          }
-          return new Promise<void>((resolve) => {
-            invalidateAll().then(resolve);
-          });
-        }
-        return refresh ? refresh(payload, refreshDefault) : refreshDefault();
-      },
+      components,
       history: {
         subscribe: (_navigate) => {
           navigate = _navigate;
@@ -49,7 +32,22 @@
             history.back();
           }
         }
-      }
+      },
+      plugins,
+      refresh: (payload) => {
+        function refreshDefault() {
+          if (payload.source === 'mutation' && payload.livePreviewEnabled) {
+            return false;
+          }
+
+          return new Promise<void>((resolve) => {
+            invalidateAll().then(resolve);
+          });
+        }
+
+        return refresh ? refresh(payload, refreshDefault) : refreshDefault();
+      },
+      zIndex
     });
     return () => disable();
   });
