@@ -18,7 +18,7 @@
     "dotenv-cli": "^8.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "2.5.14",
-    "prettier-plugin-svelte": "^3.3.3",
+    "prettier-plugin-svelte": "^3.4.0",
     "turbo": "^2.5.3"
   },
   "packageManager": "pnpm@10.10.0",
