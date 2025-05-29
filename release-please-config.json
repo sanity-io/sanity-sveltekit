@@ -6,8 +6,7 @@
     "packages/sanity-sveltekit": {
       "component": "sveltekit",
       "package-name": "@sanity/sveltekit",
-      "include-component-in-tag": true,
-      "include-component-in-manifest": false
+      "include-component-in-tag": true
     }
   }
 }
