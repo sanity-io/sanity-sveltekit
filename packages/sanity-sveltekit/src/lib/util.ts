@@ -25,20 +25,3 @@ export function sanitizePerspective(
     return fallback;
   }
 }
-
-// @todo maybe unused, remove
-/** @internal */
-export function getPerspective(
-  perspective?: ClientPerspective,
-  cookieValue?: string,
-  isPreviewing?: boolean
-): ClientPerspective {
-  return (
-    perspective ??
-    (isPreviewing
-      ? cookieValue
-        ? sanitizePerspective(cookieValue, 'drafts')
-        : 'drafts'
-      : 'published')
-  );
-}
