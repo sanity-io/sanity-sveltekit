@@ -100,8 +100,8 @@ importers:
         specifier: ^3.0.4
         version: 3.0.5
       '@sanity/core-loader':
-        specifier: ^1.8.9
-        version: 1.8.9(@sanity/types@3.90.0(@types/react@19.0.8))(typescript@5.8.3)
+        specifier: ^1.8.10
+        version: 1.8.10(@sanity/types@3.90.0(@types/react@19.0.8))(typescript@5.8.3)
       '@sanity/presentation-comlink':
         specifier: ^1.0.20
         version: 1.0.21(@sanity/client@7.3.0)(@sanity/types@3.90.0(@types/react@19.0.8)(debug@4.4.1))
@@ -1468,8 +1468,8 @@ packages:
     resolution: {integrity: sha512-aYdqV8pJ6UT/3WucER5PBMGIlAt26wKiVYcmFSA7k3dmcEaPOd8tib93bwHfQsVXzGGnUaf0e8IacKYoyTwzCw==}
     engines: {node: '>=18'}
 
-  '@sanity/core-loader@1.8.9':
-    resolution: {integrity: sha512-Mv5i7jLDNnh0jO58FUR/n6OI9z6nbh6j51ooT7sOG0J8bdOFH++sSmWldMZS00/RGT5T+pIhfhBU7k8NbJB8XA==}
+  '@sanity/core-loader@1.8.10':
+    resolution: {integrity: sha512-7RXJrAuhki5x9BAM1uZcb1BOYvf+wNmUfvcmeb2kvIrlAcSuVfHStSFwmAMLOHyxtohp3wEcOpBswhbf2wU3Sw==}
     engines: {node: '>=18'}
 
   '@sanity/diff-match-patch@3.2.0':
@@ -6768,7 +6768,7 @@ snapshots:
       uuid: 11.1.0
       xstate: 5.19.3
 
-  '@sanity/core-loader@1.8.9(@sanity/types@3.90.0(@types/react@19.0.8))(typescript@5.8.3)':
+  '@sanity/core-loader@1.8.10(@sanity/types@3.90.0(@types/react@19.0.8))(typescript@5.8.3)':
     dependencies:
       '@sanity/client': 7.3.0(debug@4.4.1)
       '@sanity/comlink': 3.0.5
