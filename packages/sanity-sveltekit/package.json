@@ -64,7 +64,7 @@
     "@sanity/client": "^7.3.0",
     "@sanity/comlink": "^3.0.5",
     "@sanity/core-loader": "^1.8.10",
-    "@sanity/presentation-comlink": "^1.0.20",
+    "@sanity/presentation-comlink": "^1.0.21",
     "@sanity/preview-url-secret": "^2.1.11",
     "@sanity/visual-editing": "^2.15.0",
     "fast-deep-equal": "^3.1.3",
