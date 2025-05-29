@@ -4,7 +4,7 @@
   "plugins": ["node-workspace"],
   "packages": {
     "packages/sanity-sveltekit": {
-      "component": "sveltekit",
+      "component": "sanity-sveltekit",
       "package-name": "@sanity/sveltekit"
     }
   }
