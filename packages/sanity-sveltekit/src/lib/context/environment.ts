@@ -1,4 +1,10 @@
 import { getContext, setContext } from 'svelte';
+
+/**
+ * @internal
+ */
+export const environmentContextKey = Symbol('environment');
+
 /**
  *
  * @public
@@ -10,8 +16,6 @@ export type DraftEnvironment =
   | 'live'
   | 'static'
   | 'unknown';
-
-export const environmentContextKey = Symbol('environment');
 
 /**
  * @public

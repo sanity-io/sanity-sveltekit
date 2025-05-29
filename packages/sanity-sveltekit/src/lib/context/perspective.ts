@@ -1,6 +1,9 @@
 import type { ClientPerspective } from '@sanity/client';
 import { getContext, setContext } from 'svelte';
 
+/**
+ * @internal
+ */
 const perspectiveContextKey = Symbol('perspective');
 
 /**

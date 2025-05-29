@@ -1,5 +1,8 @@
 import { getContext, setContext } from 'svelte';
 
+/**
+ * @internal
+ */
 const queryContextKey = Symbol('loader');
 
 /**
