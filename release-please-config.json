@@ -1,11 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-  "last-release-sha": "0e721bde5d1bc2bade925109a921680630e17674",
-  "release-type": "node",
   "plugins": ["node-workspace"],
+  "last-release-sha": "0e721bde5d1bc2bade925109a921680630e17674",
   "packages": {
-    "packages/sanity-sveltekit": {
-      "package-name": "@sanity/sveltekit"
-    }
+    "packages/sanity-sveltekit": {}
   }
 }
