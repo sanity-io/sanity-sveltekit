@@ -1,6 +1,5 @@
 {
   "name": "sanity-sveltekit-monorepo",
-  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "turbo build --filter=./packages/*",
