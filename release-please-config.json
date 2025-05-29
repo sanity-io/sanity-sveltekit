@@ -3,10 +3,9 @@
   "last-release-sha": "0e721bde5d1bc2bade925109a921680630e17674",
   "plugins": ["node-workspace"],
   "packages": {
-    ".": {
-      "packages/sanity-sveltekit": {
-        "package-name": "@sanity/sveltekit"
-      }
+    "packages/sanity-sveltekit": {
+      "component": "sveltekit",
+      "package-name": "@sanity/sveltekit"
     }
   }
 }
