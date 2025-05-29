@@ -23,6 +23,11 @@ export interface VisualEditingProps extends Omit<VisualEditingOptions, 'history'
    * @deprecated The history adapter is already implemented
    */
   history?: never;
+  /**
+   * The refresh API allows smarter refresh logic than the default
+   * `location.reload()` behavior. You can call the refreshDefault argument to
+   * trigger the default refresh behavior so you don't have to reimplement it.
+   */
   refresh?: (
     payload: HistoryRefresh,
     refreshDefault: () => false | Promise<void>

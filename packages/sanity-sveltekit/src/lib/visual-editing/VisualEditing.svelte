@@ -4,19 +4,14 @@
 
   const {
     children,
+    components,
     enabled = true,
+    plugins,
     refresh,
     zIndex
-  }: {
+  }: VisualEditingProps & {
     children?: Snippet;
     enabled?: boolean;
-    /**
-     * The refresh API allows smarter refresh logic than the default
-     * `location.reload()` behavior. You can call the refreshDefault argument to
-     * trigger the default refresh behavior so you don't have to reimplement it.
-     */
-    refresh?: VisualEditingProps['refresh'];
-    zIndex?: VisualEditingProps['zIndex'];
   } = $props();
 </script>
 
@@ -24,6 +19,6 @@
 
 {#if enabled}
   {#await import('./VisualEditingComponent.svelte') then { default: VisualEditing }}
-    <VisualEditing {zIndex} {refresh} />
+    <VisualEditing {components} {plugins} {refresh} {zIndex} />
   {/await}
 {/if}
