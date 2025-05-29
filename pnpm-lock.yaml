@@ -103,7 +103,7 @@ importers:
         specifier: ^1.8.10
         version: 1.8.10(@sanity/types@3.90.0(@types/react@19.0.8))(typescript@5.8.3)
       '@sanity/presentation-comlink':
-        specifier: ^1.0.20
+        specifier: ^1.0.21
         version: 1.0.21(@sanity/client@7.3.0)(@sanity/types@3.90.0(@types/react@19.0.8)(debug@4.4.1))
       '@sanity/preview-url-secret':
         specifier: ^2.1.11
