@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v0.2.0...sveltekit-v0.2.1) (2025-06-04)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @sanity/client to ^7.4.0 ([#76](https://github.com/sanity-io/sanity-sveltekit/issues/76)) ([d59516b](https://github.com/sanity-io/sanity-sveltekit/commit/d59516b2784b89e1ea8aa813cdf6bd80d533f1bb))
+
 ## [0.2.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v0.1.0...sveltekit-v0.2.0) (2025-05-29)
 
 
