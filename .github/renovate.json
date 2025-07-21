@@ -1,8 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>sanity-io/renovate-config"],
-  "ignorePresets": [":ignoreModulesAndTests", "github>sanity-io/renovate-config:group-non-major"],
-  "baseBranches": ["$default"],
+  "ignorePresets": [
+    ":ignoreModulesAndTests",
+    "github>sanity-io/renovate-config:group-non-major"
+  ],
+  "baseBranchPatterns": ["$default"],
   "packageRules": [
     {
       "description": "Enable automerge with GitHub merge queues (note that this doesn't bypass required checks and code reviews)",
@@ -27,7 +30,6 @@
       ],
       "matchManagers": ["npm"],
       "semanticCommitType": "chore",
-
       "matchFileNames": ["apps/**/package.json"],
       "groupName": "App dependencies"
     }
