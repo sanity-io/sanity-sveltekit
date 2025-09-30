@@ -1,23 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>sanity-io/renovate-config"],
-  "ignorePresets": [":ignoreModulesAndTests"],
   "baseBranchPatterns": ["$default"],
+  "ignorePresets": [":ignoreModulesAndTests"],
   "packageRules": [
-    {
-      "description": "Enable automerge with GitHub merge queues (note that this doesn't bypass required checks and code reviews)",
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    },
-    {
-      "matchDepTypes": ["dependencies", "devDependencies"],
-      "rangeStrategy": "bump"
-    },
     {
       "description": "Group all dependencies from the app directory",
       "group": {
         "semanticCommitType": "chore"
       },
+      "groupName": "App dependencies",
       "matchDepTypes": [
         "dependencies",
         "devDependencies",
@@ -25,13 +17,16 @@
         "optionalDependencies",
         "peerDependencies"
       ],
-      "matchManagers": ["npm"],
-      "semanticCommitType": "chore",
       "matchFileNames": ["apps/**/package.json"],
-      "groupName": "App dependencies"
+      "matchManagers": ["npm"],
+      "semanticCommitType": "chore"
     },
     {
-      "groupName": "sanity packages",
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "groupName": "Sanity packages",
       "matchPackageNames": ["/^@sanity//", "groq", "sanity"],
       "rangeStrategy": "bump",
       "semanticCommitType": "fix"
