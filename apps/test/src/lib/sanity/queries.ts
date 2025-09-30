@@ -1,4 +1,4 @@
-import { defineQuery } from 'groq';
+import { defineQuery } from '@sanity/sveltekit';
 
 export const buildingsQuery = defineQuery(`*[_type == "building" && defined(slug.current)]{
   _id,

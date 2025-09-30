@@ -1,6 +1,6 @@
 // Visual Editing
 export { default as VisualEditing } from './visual-editing/VisualEditing.svelte';
-export * from './createDataAttribute';
+export * from './visual-editing/createDataAttribute';
 
 // Live Content API
 export { default as LiveLoader } from './live/LiveLoader.svelte';
@@ -31,3 +31,9 @@ export type { SanityLocals, VisualEditingProps } from './types';
 
 // Studio
 export { default as SanityStudio } from './studio/SanityStudio.svelte';
+
+// Client
+export * from './client';
+
+// Groq
+export * from './groq';
