@@ -1,4 +1,4 @@
-import { createClient } from '@sanity/client';
+import { createClient } from '@sanity/sveltekit';
 import {
   PUBLIC_SANITY_DATASET,
   PUBLIC_SANITY_PROJECT_ID,
