@@ -18,7 +18,7 @@
     "@sanity/sveltekit": "workspace:*",
     "@sveltejs/adapter-auto": "^6.1.0",
     "@sveltejs/kit": "^2.43.5",
-    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@tailwindcss/vite": "^4.1.13",
     "svelte": "^5.39.6",
     "svelte-check": "^4.3.2",
