@@ -1,0 +1,4 @@
+{
+  "files": [],
+  "references": [{ "path": "./packages/sanity-sveltekit" }, { "path": "./apps/test" }]
+}

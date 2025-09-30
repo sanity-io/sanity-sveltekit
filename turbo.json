@@ -1,10 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "PUBLIC_SANITY_DATASET",
+    "PUBLIC_SANITY_PROJECT_ID",
+    "PUBLIC_SANITY_STUDIO_URL",
+    "SANITY_API_READ_TOKEN"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"]
     },
+    "check": {},
     "dev": {
       "cache": false,
       "persistent": true

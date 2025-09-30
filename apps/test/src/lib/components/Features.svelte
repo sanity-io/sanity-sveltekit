@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getEnvironment, getIsPreviewing, getPerspective, getLoader } from '@sanity/sveltekit';
   import { page } from '$app/state';
+  import { resolve } from '$app/paths';
 
   const loader = getLoader();
   const environment = getEnvironment();
@@ -15,7 +16,9 @@
     {#if isPreviewing}
       <a
         class="relative flex transition-all duration-300 p-2 gap-1 group hover:bg-red-100 hover:text-red-500"
-        href={`/preview/disable?redirect=${page.url.pathname}`}
+        href={resolve(`/preview/disable`, {
+          redirect: page.url.pathname
+        })}
       >
         <div class="opacity-50">Preview</div>
         <div class="overflow-hidden">

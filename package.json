@@ -3,22 +3,30 @@
   "private": true,
   "scripts": {
     "build": "turbo build --filter=./packages/*",
+    "check": "turbo check",
     "dev": "turbo dev",
     "format": "prettier --cache --write .",
-    "lint": "turbo lint",
+    "lint": "eslint",
     "predev": "turbo build",
     "prepare": "turbo prepare",
-    "lint:fix": "pnpm lint -- --fix",
+    "lint:fix": "eslint --fix",
     "test": "turbo test",
     "typegen": "turbo typegen"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.4.0",
+    "@eslint/js": "^9.36.0",
     "@sanity/prettier-config": "^1.0.6",
     "dotenv-cli": "^8.0.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-svelte": "^3.12.4",
+    "globals": "^16.4.0",
     "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "2.5.15",
     "prettier-plugin-svelte": "^3.4.0",
-    "turbo": "^2.5.4"
+    "turbo": "^2.5.4",
+    "typescript-eslint": "^8.45.0"
   },
   "packageManager": "pnpm@10.11.1",
   "pnpm": {
