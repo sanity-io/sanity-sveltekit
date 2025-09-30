@@ -29,7 +29,7 @@
   "dependencies": {
     "@sanity/client": "^7.11.2",
     "@sanity/image-url": "^1.2.0",
-    "groq": "^3.99.0",
-    "sanity": "^3.99.0"
+    "groq": "^4.10.2",
+    "sanity": "^4.10.2"
   }
 }
