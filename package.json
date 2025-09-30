@@ -2,8 +2,12 @@
   "name": "sanity-sveltekit-monorepo",
   "private": true,
   "scripts": {
-    "build": "turbo build --filter=./packages/*",
-    "check": "turbo check",
+    "build": "pnpm run build:apps && pnpm run build:packages",
+    "build:apps": "turbo build --filter=./apps/*",
+    "build:packages": "turbo build --filter=./packages/*",
+    "check": "pnpm run check:apps && npm run check:packages",
+    "check:apps": "turbo check --filter=./apps/*",
+    "check:packages": "turbo check --filter=./packages/*",
     "dev": "turbo dev",
     "format": "prettier --cache --write .",
     "lint": "eslint",
@@ -32,6 +36,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild"
-    ]
+    ],
+    "overrides": {
+      "@sanity/sveltekit": "workspace:*"
+    }
   }
 }
