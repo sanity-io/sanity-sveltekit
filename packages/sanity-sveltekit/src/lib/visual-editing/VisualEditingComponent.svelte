@@ -27,6 +27,9 @@
         update: (update) => {
           if (update.type === 'push' || update.type === 'replace') {
             navigatingFromUpdate = true;
+            // Seems to be a problematic eslint rule as of 30/09/25:
+            // https://github.com/sveltejs/eslint-plugin-svelte/issues?q=is%3Aissue%20no-navigation-without-resolve
+            // eslint-disable-next-line svelte/no-navigation-without-resolve
             goto(update.url, { replaceState: update.type === 'replace' });
           } else if (update.type === 'pop') {
             history.back();
