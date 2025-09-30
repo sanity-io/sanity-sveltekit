@@ -34,9 +34,9 @@
     "vite": "^6.3.6"
   },
   "dependencies": {
-    "@sanity/client": "^7.4.0",
-    "@sanity/image-url": "^1.1.0",
-    "groq": "^3.91.0",
-    "sanity": "^3.91.0"
+    "@sanity/client": "^7.11.2",
+    "@sanity/image-url": "^1.2.0",
+    "groq": "^3.99.0",
+    "sanity": "^3.99.0"
   }
 }
