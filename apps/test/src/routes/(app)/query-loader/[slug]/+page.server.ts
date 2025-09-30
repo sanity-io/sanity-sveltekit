@@ -1,7 +1,7 @@
 import { buildingQuery as query } from '$lib/sanity/queries';
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import type { BuildingQueryResult } from '$lib/sanity.types';
+import type { BuildingQueryResult } from '$lib/sanity/types';
 
 export const load: PageServerLoad = async ({ locals: { sanity }, params: { slug } }) => {
   const { loadQuery } = sanity;
