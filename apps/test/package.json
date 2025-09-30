@@ -20,11 +20,11 @@
     "@sveltejs/kit": "^2.43.5",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@tailwindcss/vite": "^4.1.13",
-    "svelte": "^5.39.6",
+    "svelte": "^5.39.7",
     "svelte-check": "^4.3.2",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
-    "vite": "^6.3.6"
+    "vite": "^7.1.7"
   },
   "dependencies": {
     "@sanity/client": "^7.11.2",
