@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@sanity/sveltekit': workspace:*
+
 importers:
 
   .:
@@ -153,7 +156,7 @@ importers:
         version: 7.1.7(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0)
       vitest:
         specifier: ^3.2.4
-        version: 3.2.4(@types/node@22.15.16)(jiti@2.6.0)(jsdom@26.1.0)(lightningcss@1.30.1)(yaml@2.8.0)
+        version: 3.2.4(@types/node@22.15.16)(jiti@2.6.0)(jsdom@23.2.0)(lightningcss@1.30.1)(yaml@2.8.0)
 
 packages:
 
@@ -7137,7 +7140,7 @@ snapshots:
       get-random-values-esm: 1.0.2
       lodash: 4.17.21
 
-  '@portabletext/editor@1.58.0(@sanity/schema@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@sanity/types@3.99.0(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.2)':
+  '@portabletext/editor@1.58.0(@sanity/schema@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.2)':
     dependencies:
       '@portabletext/block-tools': 1.1.38(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@types/react@19.0.8)
       '@portabletext/keyboard-shortcuts': 1.1.0
@@ -7449,7 +7452,7 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@sanity/insert-menu@1.1.13(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.99.0(@types/react@19.0.8))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+  '@sanity/insert-menu@1.1.13(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
     dependencies:
       '@sanity/icons': 3.7.4(react@19.0.0)
       '@sanity/types': 3.99.0(@types/react@19.0.8)(debug@4.4.1)
@@ -7717,7 +7720,7 @@ snapshots:
     dependencies:
       '@sanity/comlink': 3.0.9
       '@sanity/icons': 3.7.4(react@19.0.0)
-      '@sanity/insert-menu': 1.1.13(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.99.0(@types/react@19.0.8))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@sanity/insert-menu': 1.1.13(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@sanity/mutate': 0.11.0-canary.4(xstate@5.22.0)
       '@sanity/presentation-comlink': 1.0.29(@sanity/client@7.11.2)(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))
       '@sanity/preview-url-secret': 2.1.15(@sanity/client@7.11.2)(@sanity/icons@3.7.4(react@19.0.0))(sanity@3.99.0(@emotion/is-prop-valid@1.2.2)(@types/node@22.15.16)(@types/react@19.0.8)(immer@10.1.1)(jiti@2.6.0)(lightningcss@1.30.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.9.2)(yaml@2.8.0))
@@ -10642,7 +10645,7 @@ snapshots:
       '@juggle/resize-observer': 3.4.0
       '@mux/mux-player-react': 3.6.0(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@portabletext/block-tools': 1.1.38(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@types/react@19.0.8)
-      '@portabletext/editor': 1.58.0(@sanity/schema@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@sanity/types@3.99.0(@types/react@19.0.8))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.2)
+      '@portabletext/editor': 1.58.0(@sanity/schema@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(@types/react@19.0.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rxjs@7.8.2)
       '@portabletext/react': 3.2.1(react@19.0.0)
       '@portabletext/toolkit': 2.0.17
       '@rexxars/react-json-inspector': 9.0.1(react@19.0.0)
@@ -10661,7 +10664,7 @@ snapshots:
       '@sanity/id-utils': 1.0.0
       '@sanity/image-url': 1.2.0
       '@sanity/import': 3.38.2(@types/react@19.0.8)
-      '@sanity/insert-menu': 1.1.13(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.99.0(@types/react@19.0.8))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@sanity/insert-menu': 1.1.13(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.99.0(@types/react@19.0.8)(debug@4.4.1))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.18(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@sanity/logos': 2.2.2(react@19.0.0)
       '@sanity/media-library-types': 1.0.1
       '@sanity/message-protocol': 0.13.1
@@ -11486,7 +11489,7 @@ snapshots:
     optionalDependencies:
       vite: 7.1.7(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0)
 
-  vitest@3.2.4(@types/node@22.15.16)(jiti@2.6.0)(jsdom@26.1.0)(lightningcss@1.30.1)(yaml@2.8.0):
+  vitest@3.2.4(@types/node@22.15.16)(jiti@2.6.0)(jsdom@23.2.0)(lightningcss@1.30.1)(yaml@2.8.0):
     dependencies:
       '@types/chai': 5.2.2
       '@vitest/expect': 3.2.4
@@ -11513,7 +11516,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.15.16
-      jsdom: 26.1.0
+      jsdom: 23.2.0
     transitivePeerDependencies:
       - jiti
       - less
