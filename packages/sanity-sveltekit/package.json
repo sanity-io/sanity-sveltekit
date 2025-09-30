@@ -40,16 +40,16 @@
   },
   "devDependencies": {
     "@sanity/types": "^3.99.0",
-    "@sveltejs/adapter-auto": "^6.0.1",
-    "@sveltejs/kit": "^2.21.2",
-    "@sveltejs/package": "^2.3.11",
-    "@sveltejs/vite-plugin-svelte": "^5.1.0",
-    "publint": "^0.3.12",
-    "svelte": "^5.33.14",
-    "svelte-check": "^4.2.1",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vitest": "^3.2.1"
+    "@sveltejs/adapter-auto": "^6.1.0",
+    "@sveltejs/kit": "^2.43.5",
+    "@sveltejs/package": "^2.5.4",
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "publint": "^0.3.13",
+    "svelte": "^5.39.7",
+    "svelte-check": "^4.3.2",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.6",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@sanity/client": "^7.11.2",
