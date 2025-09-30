@@ -14,18 +14,12 @@ concurrency:
 permissions:
   contents: read # for checkout
 
-env:
-  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-  PUBLIC_SANITY_DATASET: ${{ vars.PUBLIC_SANITY_DATASET }}
-  PUBLIC_SANITY_PROJECT_ID: ${{ vars.PUBLIC_SANITY_PROJECT_ID }}
-  PUBLIC_SANITY_STUDIO_URL: ${{ vars.PUBLIC_SANITY_STUDIO_URL }}
-
 jobs:
   lint:
     runs-on: ubuntu-latest
     env:
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN || 'placeholder' }}
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
@@ -39,8 +33,8 @@ jobs:
   build-and-check:
     runs-on: ubuntu-latest
     env:
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      SANITY_API_READ_TOKEN: ${{ secrets.SANITY_API_READ_TOKEN || 'placeholder' }}
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
