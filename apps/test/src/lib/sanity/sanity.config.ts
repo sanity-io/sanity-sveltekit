@@ -2,10 +2,11 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { schema } from './schemaTypes';
 import { presentationTool } from 'sanity/presentation';
-
-const projectId = typeof process !== 'undefined' ? process.env.PUBLIC_SANITY_PROJECT_ID! : '';
-const dataset = typeof process !== 'undefined' ? process.env.PUBLIC_SANITY_DATASET! : '';
-const origin = typeof process !== 'undefined' ? process.env.PUBLIC_SANITY_APP_URL! : '';
+import {
+  PUBLIC_SANITY_PROJECT_ID as projectId,
+  PUBLIC_SANITY_DATASET as dataset,
+  PUBLIC_SANITY_APP_URL as origin
+} from '$env/static/public';
 
 export default defineConfig({
   name: 'default',
@@ -26,6 +27,5 @@ export default defineConfig({
       }
     })
   ],
-
   schema
 });
