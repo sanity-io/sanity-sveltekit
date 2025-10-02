@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v0.2.0...sveltekit-v1.0.0) (2025-10-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename DraftPerspective to PreviewPerspective ([#105](https://github.com/sanity-io/sanity-sveltekit/issues/105))
+
+### Features
+
+* export client and groq helpers ([#102](https://github.com/sanity-io/sanity-sveltekit/issues/102)) ([c8c35b5](https://github.com/sanity-io/sanity-sveltekit/commit/c8c35b5c7565efe093276c93a8764d1277053252))
+* rename DraftPerspective to PreviewPerspective ([#105](https://github.com/sanity-io/sanity-sveltekit/issues/105)) ([819420a](https://github.com/sanity-io/sanity-sveltekit/commit/819420aa09664f2795e5ff75f599beb2472430a4))
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @sanity/client to ^7.4.0 ([#76](https://github.com/sanity-io/sanity-sveltekit/issues/76)) ([d59516b](https://github.com/sanity-io/sanity-sveltekit/commit/d59516b2784b89e1ea8aa813cdf6bd80d533f1bb))
+* **deps:** update dependency @sanity/visual-editing to v3 ([#96](https://github.com/sanity-io/sanity-sveltekit/issues/96)) ([d6eca70](https://github.com/sanity-io/sanity-sveltekit/commit/d6eca70a55380f90c45c0ed66ff2cbf4c18b9794))
+* **deps:** update sanity packages ([#83](https://github.com/sanity-io/sanity-sveltekit/issues/83)) ([cb23da7](https://github.com/sanity-io/sanity-sveltekit/commit/cb23da7988adfb023615695f8807950a8bfcae6d))
+* **deps:** update sanity packages to v4 ([#97](https://github.com/sanity-io/sanity-sveltekit/issues/97)) ([53ee5d3](https://github.com/sanity-io/sanity-sveltekit/commit/53ee5d3807a260a1d4487be79b73b8fdfd3bce4d))
+
+## [1.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v0.2.0...sveltekit-v1.0.0) (2025-10-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename DraftPerspective to PreviewPerspective ([#105](https://github.com/sanity-io/sanity-sveltekit/issues/105))
+
+### Features
+
+* export client and groq helpers ([#102](https://github.com/sanity-io/sanity-sveltekit/issues/102)) ([c8c35b5](https://github.com/sanity-io/sanity-sveltekit/commit/c8c35b5c7565efe093276c93a8764d1277053252))
+* rename DraftPerspective to PreviewPerspective ([#105](https://github.com/sanity-io/sanity-sveltekit/issues/105)) ([819420a](https://github.com/sanity-io/sanity-sveltekit/commit/819420aa09664f2795e5ff75f599beb2472430a4))
+
+
+### Bug Fixes
+
+* **deps:** Update dependency @sanity/client to ^7.4.0 ([#76](https://github.com/sanity-io/sanity-sveltekit/issues/76)) ([d59516b](https://github.com/sanity-io/sanity-sveltekit/commit/d59516b2784b89e1ea8aa813cdf6bd80d533f1bb))
+* **deps:** update dependency @sanity/visual-editing to v3 ([#96](https://github.com/sanity-io/sanity-sveltekit/issues/96)) ([d6eca70](https://github.com/sanity-io/sanity-sveltekit/commit/d6eca70a55380f90c45c0ed66ff2cbf4c18b9794))
+* **deps:** update sanity packages ([#83](https://github.com/sanity-io/sanity-sveltekit/issues/83)) ([cb23da7](https://github.com/sanity-io/sanity-sveltekit/commit/cb23da7988adfb023615695f8807950a8bfcae6d))
+* **deps:** update sanity packages to v4 ([#97](https://github.com/sanity-io/sanity-sveltekit/issues/97)) ([53ee5d3](https://github.com/sanity-io/sanity-sveltekit/commit/53ee5d3807a260a1d4487be79b73b8fdfd3bce4d))
+
 ## [0.2.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v0.1.0...sveltekit-v0.2.0) (2025-05-29)
 
 
