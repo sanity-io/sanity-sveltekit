@@ -14,7 +14,7 @@ export { loadQuery, setServerClient, useLiveMode, useQuery } from './query/store
 
 // Context
 export { getEnvironment, setEnvironment, type DraftEnvironment } from './context/environment';
-export { getPerspective, setPerspective, type DraftPerspective } from './context/perspective';
+export { getPerspective, setPerspective, type PreviewPerspective } from './context/perspective';
 export { getIsPreviewing, setIsPreviewing } from './context/previewing';
 export { getLoader, setLoader, type LoaderType } from './context/loader';
 

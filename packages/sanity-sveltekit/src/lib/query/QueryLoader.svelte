@@ -8,7 +8,11 @@
     children,
     client,
     enabled = true
-  }: { children?: Snippet; client: SanityClient; enabled?: boolean } = $props();
+  }: {
+    children?: Snippet;
+    client: SanityClient;
+    enabled?: boolean;
+  } = $props();
 
   const loader = $state<{ value: LoaderType }>({
     value: undefined

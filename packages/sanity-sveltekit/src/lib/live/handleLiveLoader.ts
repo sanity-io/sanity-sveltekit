@@ -15,13 +15,12 @@ export interface HandleLiveLoaderConfig {
    */
   client?: SanityClient;
   /**
-   * Optional. If provided then the token needs to have permissions to query documents with `drafts.` prefixes in order for `perspective: 'drafts'` to work.
+   * Optional. If provided, the token needs to have permissions to query documents with `drafts.` prefixes in order for `perspective: 'drafts'` to work.
    * This token is not shared with the browser.
    */
   serverToken?: string;
   /**
-   * Optional. This token is shared with the browser, and should only have access to query published documents.
-   * It is used to setup a `Live Draft Content` EventSource connection, and enables live previewing drafts stand-alone, outside of Presentation Tool.
+   * Optional. This token is shared with the browser when preview mode is enabled. It is used to setup a `Live Draft Content` EventSource connection, and enables live previewing drafts stand-alone, outside of Presentation Tool.
    */
   browserToken?: string;
   /**
@@ -35,7 +34,7 @@ export interface HandleLiveLoaderConfig {
     revalidate?: number | false;
   };
   /**
-   * Optional. Include stega encoding when draft mode is enabled.
+   * Optional. Include stega encoding when preview mode is enabled.
    *  @defaultValue `true`
    */
   stega?: boolean;
