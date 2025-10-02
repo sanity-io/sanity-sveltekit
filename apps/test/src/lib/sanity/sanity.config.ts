@@ -18,6 +18,7 @@ export default defineConfig({
     presentationTool({
       previewUrl: {
         origin,
+        initial: '/',
         previewMode: {
           enable: '/preview/enable',
           disable: '/preview/disable'

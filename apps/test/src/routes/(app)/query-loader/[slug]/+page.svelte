@@ -4,8 +4,8 @@
   import type { PageProps } from './$types';
 
   const { data }: PageProps = $props();
-  const value = $derived(useQuery(data));
-  const { data: building } = $derived($value);
+  const query = useQuery(data);
+  const building = $derived($query.data);
 </script>
 
 {#if building}
