@@ -9,18 +9,18 @@ const perspectiveContextKey = Symbol('perspective');
 /**
  * @public
  */
-export type DraftPerspective = 'checking' | 'unknown' | ClientPerspective;
+export type PreviewPerspective = 'checking' | 'unknown' | ClientPerspective;
 
 /**
  * @public
  */
-export function setPerspective(perspective: { value: DraftPerspective }) {
+export function setPerspective(perspective: { value: PreviewPerspective }) {
   setContext(perspectiveContextKey, perspective);
 }
 
 /**
  * @public
  */
-export function getPerspective(): { value: DraftPerspective } {
+export function getPerspective(): { value: PreviewPerspective } {
   return getContext(perspectiveContextKey);
 }

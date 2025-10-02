@@ -14,7 +14,7 @@
   import { invalidate, invalidateAll } from '$app/navigation';
   import { onMount, type Snippet } from 'svelte';
   import { setEnvironment, type DraftEnvironment } from '../context/environment';
-  import { setPerspective, type DraftPerspective } from '../context/perspective';
+  import { setPerspective, type PreviewPerspective } from '../context/perspective';
   import { isCorsOriginError } from '../util';
   import ComlinkPerspective from './ComlinkPerspective.svelte';
   import RefreshOnFocus from './RefreshOnFocus.svelte';
@@ -125,7 +125,7 @@
   /**
    * Set the perspective based on the preview state
    */
-  const perspective = $state<{ value: DraftPerspective }>({
+  const perspective = $state<{ value: PreviewPerspective }>({
     value: 'checking'
   });
   setPerspective(perspective);
