@@ -16,7 +16,7 @@
     {#if isPreviewing}
       <a
         class="relative flex transition-all duration-300 p-2 gap-1 group hover:bg-red-100 hover:text-red-500"
-        href={resolve(`/preview/disable`, {
+        href={resolve('/preview/disable', {
           redirect: page.url.pathname
         })}
       >
