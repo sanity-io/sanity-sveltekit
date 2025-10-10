@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.0...sveltekit-v1.0.1) (2025-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sanity/client to ^7.12.0 ([#126](https://github.com/sanity-io/sanity-sveltekit/issues/126)) ([32bb3f4](https://github.com/sanity-io/sanity-sveltekit/commit/32bb3f47e283327d763d3c2d0210e25af1107396))
+* **deps:** update dependency groq to v4 ([#118](https://github.com/sanity-io/sanity-sveltekit/issues/118)) ([999beea](https://github.com/sanity-io/sanity-sveltekit/commit/999beeab1d20b9540db57ac75186f2a8ab53f92f))
+
 ## [1.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v0.2.0...sveltekit-v1.0.0) (2025-10-02)
 
 
