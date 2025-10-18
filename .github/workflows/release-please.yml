@@ -13,12 +13,12 @@ on:
         type: boolean
 
 permissions:
-  contents: read # for checkout
+  contents: write # for release-please to update manifest files
 
 jobs:
   release-please:
     permissions:
-      contents: read # for checkout
+      contents: write # for release-please to update manifest files
       id-token: write # to enable use of OIDC for npm provenance
     runs-on: ubuntu-latest
     env:
