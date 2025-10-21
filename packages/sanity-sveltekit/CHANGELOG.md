@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.1...sveltekit-v1.0.2) (2025-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update sanity packages ([#134](https://github.com/sanity-io/sanity-sveltekit/issues/134)) ([286ed2d](https://github.com/sanity-io/sanity-sveltekit/commit/286ed2d89b790a96d2523fcd9de115b4b2ff5328))
+
 ## [1.0.1](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.0...sveltekit-v1.0.1) (2025-10-10)
 
 
