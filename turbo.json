@@ -10,7 +10,8 @@
   ],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".svelte-kit/**"]
     },
     "check": {},
     "dev": {
