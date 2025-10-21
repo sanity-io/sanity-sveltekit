@@ -48,14 +48,14 @@
   "devDependencies": {
     "@sanity/types": "^4.10.2",
     "@sveltejs/adapter-auto": "^6.1.1",
-    "@sveltejs/kit": "^2.46.4",
+    "@sveltejs/kit": "^2.47.1",
     "@sveltejs/package": "^2.5.4",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "publint": "^0.3.14",
-    "svelte": "^5.39.11",
+    "svelte": "^5.41.0",
     "svelte-check": "^4.3.3",
     "typescript": "^5.9.3",
-    "vite": "^7.1.9",
+    "vite": "^7.1.10",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
