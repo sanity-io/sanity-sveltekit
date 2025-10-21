@@ -30,8 +30,8 @@ importers:
         specifier: ^10.1.8
         version: 10.1.8(eslint@9.38.0(jiti@2.6.0))
       eslint-plugin-svelte:
-        specifier: ^3.12.4
-        version: 3.12.4(eslint@9.38.0(jiti@2.6.0))(svelte@5.41.1)
+        specifier: ^3.12.5
+        version: 3.12.5(eslint@9.38.0(jiti@2.6.0))(svelte@5.41.1)
       globals:
         specifier: ^16.4.0
         version: 16.4.0
@@ -48,7 +48,7 @@ importers:
         specifier: ^2.5.8
         version: 2.5.8
       typescript-eslint:
-        specifier: ^8.46.1
+        specifier: ^8.46.2
         version: 8.46.2(eslint@9.38.0(jiti@2.6.0))(typescript@5.9.3)
 
   apps/test:
@@ -134,7 +134,7 @@ importers:
         specifier: ^6.1.1
         version: 6.1.1(@sveltejs/kit@2.47.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.1)(vite@7.1.11(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0)))(svelte@5.41.1)(vite@7.1.11(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0)))
       '@sveltejs/kit':
-        specifier: ^2.47.1
+        specifier: ^2.47.2
         version: 2.47.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.41.1)(vite@7.1.11(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0)))(svelte@5.41.1)(vite@7.1.11(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0))
       '@sveltejs/package':
         specifier: ^2.5.4
@@ -143,10 +143,10 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(svelte@5.41.1)(vite@7.1.11(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0))
       publint:
-        specifier: ^0.3.14
-        version: 0.3.14
+        specifier: ^0.3.15
+        version: 0.3.15
       svelte:
-        specifier: ^5.41.0
+        specifier: ^5.41.1
         version: 5.41.1
       svelte-check:
         specifier: ^4.3.3
@@ -155,7 +155,7 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^7.1.10
+        specifier: ^7.1.11
         version: 7.1.11(@types/node@22.15.16)(jiti@2.6.0)(lightningcss@1.30.1)(yaml@2.8.0)
       vitest:
         specifier: ^3.2.4
@@ -3209,8 +3209,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-svelte@3.12.4:
-    resolution: {integrity: sha512-hD7wPe+vrPgx3U2X2b/wyTMtWobm660PygMGKrWWYTc9lvtY8DpNFDaU2CJQn1szLjGbn/aJ3g8WiXuKakrEkw==}
+  eslint-plugin-svelte@3.12.5:
+    resolution: {integrity: sha512-4KRG84eAHQfYd9OjZ1K7sCHy0nox+9KwT+s5WCCku3jTim5RV4tVENob274nCwIaApXsYPKAUAZFBxKZ3Wyfjw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^8.57.1 || ^9.0.0
@@ -4628,8 +4628,8 @@ packages:
   psl@1.15.0:
     resolution: {integrity: sha512-JZd3gMVBAVQkSs6HdNZo9Sdo0LNcQeMNP3CozBJb3JYC/QUYZTnKxP+f8oWRX4rHP5EurWxqAHTSwUCjlNKa1w==}
 
-  publint@0.3.14:
-    resolution: {integrity: sha512-14/VNBvWsrBeqWNDw8c/DK5ERcZBUwL1rnkVx18cQnF3zadr3GfoYtvD8mxi1dhkWpaPHp8kfi92MDbjMeW3qw==}
+  publint@0.3.15:
+    resolution: {integrity: sha512-xPbRAPW+vqdiaKy5sVVY0uFAu3LaviaPO3pZ9FaRx59l9+U/RKR1OEbLhkug87cwiVKxPXyB4txsv5cad67u+A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5146,9 +5146,9 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
-  svelte-eslint-parser@1.3.3:
-    resolution: {integrity: sha512-oTrDR8Z7Wnguut7QH3YKh7JR19xv1seB/bz4dxU5J/86eJtZOU4eh0/jZq4dy6tAlz/KROxnkRQspv5ZEt7t+Q==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+  svelte-eslint-parser@1.4.0:
+    resolution: {integrity: sha512-fjPzOfipR5S7gQ/JvI9r2H8y9gMGXO3JtmrylHLLyahEMquXI0lrebcjT+9/hNgDej0H7abTyox5HpHmW1PSWA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0, pnpm: 10.18.3}
     peerDependencies:
       svelte: ^3.37.0 || ^4.0.0 || ^5.0.0
     peerDependenciesMeta:
@@ -9228,7 +9228,7 @@ snapshots:
     dependencies:
       eslint: 9.38.0(jiti@2.6.0)
 
-  eslint-plugin-svelte@3.12.4(eslint@9.38.0(jiti@2.6.0))(svelte@5.41.1):
+  eslint-plugin-svelte@3.12.5(eslint@9.38.0(jiti@2.6.0))(svelte@5.41.1):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.38.0(jiti@2.6.0))
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -9240,7 +9240,7 @@ snapshots:
       postcss-load-config: 3.1.4(postcss@8.5.6)
       postcss-safe-parser: 7.0.1(postcss@8.5.6)
       semver: 7.7.2
-      svelte-eslint-parser: 1.3.3(svelte@5.41.1)
+      svelte-eslint-parser: 1.4.0(svelte@5.41.1)
     optionalDependencies:
       svelte: 5.41.1
     transitivePeerDependencies:
@@ -10634,7 +10634,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  publint@0.3.14:
+  publint@0.3.15:
     dependencies:
       '@publint/pack': 0.1.2
       package-manager-detector: 1.3.0
@@ -11515,7 +11515,7 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-eslint-parser@1.3.3(svelte@5.41.1):
+  svelte-eslint-parser@1.4.0(svelte@5.41.1):
     dependencies:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
