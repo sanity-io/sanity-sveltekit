@@ -16,7 +16,7 @@ npm install @sanity/sveltekit
 
 See the [Visual Editing with SvelteKit](https://www.sanity.io/docs/visual-editing/visual-editing-with-sveltekit) guide for a full implementation.
 
-### Emebedded Sanity Studio
+### Embedded Sanity Studio
 
 Create and populate a `.env.local` file at the root of your application if it does not already exist.
 
