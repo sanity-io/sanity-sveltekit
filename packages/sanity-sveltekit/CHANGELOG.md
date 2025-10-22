@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.3](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.2...sveltekit-v1.0.3) (2025-10-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sanity/comlink to v4 ([#149](https://github.com/sanity-io/sanity-sveltekit/issues/149)) ([de8b676](https://github.com/sanity-io/sanity-sveltekit/commit/de8b676819c40795308c6021b3c0b3d96edbd871))
+* **deps:** update dependency @sanity/presentation-comlink to v2 ([#150](https://github.com/sanity-io/sanity-sveltekit/issues/150)) ([2208652](https://github.com/sanity-io/sanity-sveltekit/commit/2208652eccfa1fb91d9ccdcbc49f172c87beaa2e))
+* **deps:** update dependency @sanity/types to ^4.11.0 ([#148](https://github.com/sanity-io/sanity-sveltekit/issues/148)) ([f89d104](https://github.com/sanity-io/sanity-sveltekit/commit/f89d104e353f1d51f4bfa6758a749035937c7723))
+
 ## [1.0.2](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.1...sveltekit-v1.0.2) (2025-10-21)
 
 
