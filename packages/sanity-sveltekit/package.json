@@ -46,7 +46,7 @@
     "sanity": "^4.10.3"
   },
   "devDependencies": {
-    "@sanity/types": "^4.10.3",
+    "@sanity/types": "^4.11.0",
     "@sveltejs/adapter-auto": "^7.0.0",
     "@sveltejs/kit": "^2.47.2",
     "@sveltejs/package": "^2.5.4",
