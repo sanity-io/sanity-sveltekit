@@ -3,6 +3,7 @@
   "plugins": ["node-workspace"],
   "packages": {
     "packages/sanity-sveltekit": {
+      "release-type": "node",
       "component": "sveltekit",
       "package-name": "@sanity/sveltekit",
       "include-component-in-tag": true
