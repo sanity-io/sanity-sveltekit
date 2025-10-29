@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.3...sveltekit-v1.0.4) (2025-10-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sanity/core-loader to v2 ([#155](https://github.com/sanity-io/sanity-sveltekit/issues/155)) ([d107268](https://github.com/sanity-io/sanity-sveltekit/commit/d107268c3528f0f63727a8c4ca3da3e0e210f411))
+* **deps:** update dependency @sanity/visual-editing to v4 ([#156](https://github.com/sanity-io/sanity-sveltekit/issues/156)) ([494ab57](https://github.com/sanity-io/sanity-sveltekit/commit/494ab57c731f20f6a5ee08eaa922fdd31e5e31dd))
+
 ## [1.0.3](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.2...sveltekit-v1.0.3) (2025-10-22)
 
 
