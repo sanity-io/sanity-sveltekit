@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.4...sveltekit-v1.0.5) (2025-11-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sanity/types to ^4.12.0 ([#161](https://github.com/sanity-io/sanity-sveltekit/issues/161)) ([f2d6beb](https://github.com/sanity-io/sanity-sveltekit/commit/f2d6beb3e428788e1151e452ae9e1173ac2ebe5f))
+
 ## [1.0.4](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.3...sveltekit-v1.0.4) (2025-10-29)
 
 
