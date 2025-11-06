@@ -15,6 +15,7 @@
   } = $props();
 
   const href = $derived(`${page.url.pathname}/${slug}`);
+  /* eslint-disable svelte/no-navigation-without-resolve */
 </script>
 
 <a class=" bg-white aspect-[3/4] overflow-hidden relative @container group" {href}>
