@@ -17,8 +17,8 @@
   "dependencies": {
     "@sanity/client": "^7.12.1",
     "@sanity/image-url": "^1.2.0",
-    "groq": "^4.13.0",
-    "sanity": "^4.13.0"
+    "groq": "^4.14.1",
+    "sanity": "^4.14.1"
   },
   "devDependencies": {
     "@sanity/sveltekit": "workspace:*",
