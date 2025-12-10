@@ -38,8 +38,7 @@
       "esbuild"
     ],
     "overrides": {
-      "@sanity/sveltekit": "workspace:*",
-      "@sanity/mutate": "0.11.0-canary.4"
+      "@sanity/sveltekit": "workspace:*"
     }
   }
 }
