@@ -29,7 +29,7 @@ PUBLIC_SANITY_DATASET=<your-dataset-name>
 Create a `sanity.config.ts` file.
 
 ```ts
-// src/lib/sanity.config.ts
+// src/lib/sanity/sanity.config.ts
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import {
