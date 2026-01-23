@@ -20,7 +20,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
     "@eslint/js": "^9.39.2",
-    "@sanity/prettier-config": "^2.0.3",
+    "@sanity/prettier-config": "^3.0.0",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
