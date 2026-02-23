@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.5...sveltekit-v1.0.6) (2026-02-23)
+
+
+### Bug Fixes
+
+* **deps:** update sanity packages ([#188](https://github.com/sanity-io/sanity-sveltekit/issues/188)) ([8702024](https://github.com/sanity-io/sanity-sveltekit/commit/87020241605228790c2fe9d3b4028c74275e1aac))
+
 ## [1.0.5](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.4...sveltekit-v1.0.5) (2026-01-23)
 
 
