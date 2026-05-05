@@ -14,6 +14,34 @@
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js"
+    },
+    "./query": {
+      "types": "./dist/query/index.d.ts",
+      "svelte": "./dist/query/index.js"
+    },
+    "./preview": {
+      "types": "./dist/preview/index.d.ts",
+      "svelte": "./dist/preview/index.js"
+    },
+    "./visual-editing": {
+      "types": "./dist/visual-editing/index.d.ts",
+      "svelte": "./dist/visual-editing/index.js"
+    },
+    "./live": {
+      "types": "./dist/live/index.d.ts",
+      "svelte": "./dist/live/index.js"
+    },
+    "./studio": {
+      "types": "./dist/studio/index.d.ts",
+      "svelte": "./dist/studio/index.js"
+    },
+    "./optimistic": {
+      "types": "./dist/optimistic/index.d.ts",
+      "svelte": "./dist/optimistic/index.js"
+    },
+    "./context": {
+      "types": "./dist/context/index.d.ts",
+      "svelte": "./dist/context/index.js"
     }
   },
   "svelte": "./dist/index.js",
@@ -42,8 +70,7 @@
     "@sanity/preview-url-secret": "^4.0.7",
     "@sanity/visual-editing": "^5.5.0",
     "fast-deep-equal": "^3.1.3",
-    "groq": "^6.0.0",
-    "sanity": "^6.0.0"
+    "groq": "^6.0.0"
   },
   "devDependencies": {
     "@sanity/types": "^6.0.0",
@@ -52,6 +79,7 @@
     "@sveltejs/package": "^2.5.7",
     "@sveltejs/vite-plugin-svelte": "^6.2.4",
     "publint": "^0.3.17",
+    "sanity": "^6.0.0",
     "svelte": "^5.53.6",
     "svelte-check": "^4.4.4",
     "typescript": "^5.9.3",
@@ -60,7 +88,13 @@
   },
   "peerDependencies": {
     "@sveltejs/kit": "^2.16.1",
+    "sanity": "^6.0.0",
     "svelte": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "sanity": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "access": "public"

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { QueryLoader } from '@sanity/sveltekit';
+  import { QueryLoader } from '@sanity/sveltekit/query';
   import { client } from '$lib/sanity/client';
   import Features from '$lib/components/Features.svelte';
   import type { LayoutProps } from './$types';

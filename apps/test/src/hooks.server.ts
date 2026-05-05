@@ -1,9 +1,6 @@
-import {
-  handleLiveLoader,
-  handlePreviewMode,
-  handleQueryLoader,
-  setServerClient
-} from '@sanity/sveltekit';
+import { handleLiveLoader } from '@sanity/sveltekit/live';
+import { handlePreviewMode } from '@sanity/sveltekit/preview';
+import { handleQueryLoader, setServerClient } from '@sanity/sveltekit/query';
 import { redirect } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { SANITY_API_READ_TOKEN } from '$env/static/private';
