@@ -216,33 +216,47 @@ const handleLastEventCookie = async (event: RequestEvent) => {
  * @public
  */
 export const handleLiveLoader = (config?: HandleLiveLoaderConfig): Handle => {
-  const {
-    client: configClient,
-    serverToken,
-    browserToken,
-    stega: stegaEnabled = true
-  } = config || {};
+  const { serverToken, browserToken, stega: stegaEnabled = true } = config || {};
+  let warned = false;
 
-  const _client = configClient || unstable__serverClient.instance;
-  if (!_client) throw new Error('No client instance provided to handleLiveLoader');
+  // Memoize withConfig() — it creates a new SanityClient with 9+ sub-clients (~18 allocations), so cache the result
+  let cachedRawClient: SanityClient | undefined;
+  let cachedClient: SanityClient | undefined;
 
-  if (process.env.NODE_ENV !== 'production' && !serverToken) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      'No `serverToken` provided to `handleLiveLoader`. This means that only published content will be fetched and respond to live events'
-    );
-  }
+  const resolveClient = () => {
+    const _client = config?.client || unstable__serverClient.instance;
+    if (!_client) return undefined;
 
-  if (process.env.NODE_ENV !== 'production' && !browserToken) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      'No `browserToken` provided to `handleLiveLoader`. This means that live previewing drafts will only work when using the Presentation Tool in your Sanity Studio. To support live previewing drafts stand-alone, provide a `browserToken`. It is shared with the browser so it should only have Viewer rights or lower'
-    );
-  }
+    if (_client !== cachedRawClient) {
+      cachedRawClient = _client;
+      cachedClient = _client.withConfig({ allowReconfigure: false, useCdn: false });
+    }
 
-  const client = _client.withConfig({ allowReconfigure: false, useCdn: false });
+    return cachedClient!;
+  };
 
   return async ({ event, resolve }) => {
+    // Defer to request time to support edge runtimes where env vars aren't available at module init
+    if (!warned) {
+      warned = true;
+      if (process.env.NODE_ENV !== 'production' && !serverToken) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          'No `serverToken` provided to `handleLiveLoader`. This means that only published content will be fetched and respond to live events'
+        );
+      }
+
+      if (process.env.NODE_ENV !== 'production' && !browserToken) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          'No `browserToken` provided to `handleLiveLoader`. This means that live previewing drafts will only work when using the Presentation Tool in your Sanity Studio. To support live previewing drafts stand-alone, provide a `browserToken`. It is shared with the browser so it should only have Viewer rights or lower'
+        );
+      }
+    }
+
+    const client = resolveClient();
+    if (!client) throw new Error('No client instance provided to handleLiveLoader');
+
     // Handle requests for setting the perspective cookie
     if (event.url.pathname === perspectiveCookieEndpoint && event.request.method === 'POST') {
       return handlePerspectiveCookie(event);

@@ -57,16 +57,25 @@ const setLocals = ({
   });
 };
 
+const resolveClient = (config?: HandleQueryLoaderConfig): SanityClient => {
+  return config?.client || unstable__serverClient.instance;
+};
+
+const resolveLoadQuery = (config?: HandleQueryLoaderConfig): LoadQuery => {
+  return config?.loadQuery || defaultLoadQuery;
+};
+
 /**
  * @public
  */
 export const handleQueryLoader = (config?: HandleQueryLoaderConfig): Handle => {
-  const client = config?.client || unstable__serverClient.instance;
-  if (!client) throw new Error('No client instance provided to handleLoadQuery');
-
-  const loadQuery = config?.loadQuery || defaultLoadQuery;
-
   return async ({ event, resolve }) => {
+    // Defer to request time to support edge runtimes where env vars aren't available at module init
+    const client = resolveClient(config);
+    if (!client) throw new Error('No client instance provided to handleLoadQuery');
+
+    const loadQuery = resolveLoadQuery(config);
+
     // handlePreviewMode uses 'drafts', but loadQuery needs 'previewDrafts' (published + drafts).
     const previewEnabled = event.locals.sanity?.previewEnabled ?? false;
     const perspective: ClientPerspective = previewEnabled ? 'previewDrafts' : 'published';
