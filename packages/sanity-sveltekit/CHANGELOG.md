@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.6...sveltekit-v2.0.0) (2026-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update sanity packages to v6 ([#221](https://github.com/sanity-io/sanity-sveltekit/issues/221))
+
+### Bug Fixes
+
+* **deps:** update dependency @sanity/preview-url-secret to v4 ([#205](https://github.com/sanity-io/sanity-sveltekit/issues/205)) ([a031662](https://github.com/sanity-io/sanity-sveltekit/commit/a031662c0f954dfcc8e3a516fadc99002bccc49a))
+* **deps:** update sanity packages to v6 ([#221](https://github.com/sanity-io/sanity-sveltekit/issues/221)) ([fffc4aa](https://github.com/sanity-io/sanity-sveltekit/commit/fffc4aa4d35e75a60ab33654301aebe34c4771f9))
+
 ## [1.0.6](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.5...sveltekit-v1.0.6) (2026-02-23)
 
 
