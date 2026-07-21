@@ -45,9 +45,7 @@
       },
       keepStegaOnCopy,
       // Wrap so a changing callback identity does not require re-init; always call the latest prop
-      onSuspiciousStega: onSuspiciousStega
-        ? (reports) => onSuspiciousStega?.(reports)
-        : undefined,
+      onSuspiciousStega: onSuspiciousStega ? (reports) => onSuspiciousStega?.(reports) : undefined,
       plugins,
       refresh: (payload) => {
         function refreshDefault() {

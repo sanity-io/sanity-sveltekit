@@ -35,7 +35,7 @@
     "test:unit": "vitest"
   },
   "dependencies": {
-    "@sanity/client": "^7.22.1",
+    "@sanity/client": "^7.24.0",
     "@sanity/comlink": "^4.0.1",
     "@sanity/core-loader": "^2.0.12",
     "@sanity/presentation-comlink": "^2.1.0",
