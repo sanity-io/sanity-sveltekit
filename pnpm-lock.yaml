@@ -107,10 +107,10 @@ importers:
         version: 4.0.1
       '@sanity/core-loader':
         specifier: ^2.0.12
-        version: 2.0.12(@sanity/types@6.5.0(@types/react@19.2.2))(typescript@5.9.3)
+        version: 2.0.12(@sanity/types@6.0.0(@types/react@19.2.2))(typescript@5.9.3)
       '@sanity/presentation-comlink':
         specifier: ^2.1.0
-        version: 2.2.0(@sanity/client@7.24.0)(@sanity/types@6.5.0(@types/react@19.2.2))
+        version: 2.2.0(@sanity/client@7.24.0)(@sanity/types@6.0.0(@types/react@19.2.2))
       '@sanity/preview-url-secret':
         specifier: ^4.0.7
         version: 4.1.0(@sanity/client@7.24.0)
@@ -124,9 +124,6 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0
     devDependencies:
-      '@sanity/types':
-        specifier: ^6.0.0
-        version: 6.5.0(@types/react@19.2.2)
       '@sveltejs/adapter-auto':
         specifier: ^7.0.1
         version: 7.0.1(@sveltejs/kit@2.53.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.53.6)(vite@7.3.1(@types/node@24.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.22.4)(yaml@2.9.0)))(svelte@5.53.6)(typescript@5.9.3)(vite@7.3.1(@types/node@24.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(tsx@4.22.4)(yaml@2.9.0)))
@@ -8333,12 +8330,12 @@ snapshots:
       uuid: 13.0.0
       xstate: 5.32.5
 
-  '@sanity/core-loader@2.0.12(@sanity/types@6.5.0(@types/react@19.2.2))(typescript@5.9.3)':
+  '@sanity/core-loader@2.0.12(@sanity/types@6.0.0(@types/react@19.2.2))(typescript@5.9.3)':
     dependencies:
       '@sanity/client': 7.24.0
       '@sanity/comlink': 4.0.1
-      '@sanity/presentation-comlink': 2.2.0(@sanity/client@7.24.0)(@sanity/types@6.5.0(@types/react@19.2.2))
-      '@sanity/visual-editing-csm': 3.0.11(@sanity/client@7.24.0)(@sanity/types@6.5.0(@types/react@19.2.2))(typescript@5.9.3)
+      '@sanity/presentation-comlink': 2.2.0(@sanity/client@7.24.0)(@sanity/types@6.0.0(@types/react@19.2.2))
+      '@sanity/visual-editing-csm': 3.0.11(@sanity/client@7.24.0)(@sanity/types@6.0.0(@types/react@19.2.2))(typescript@5.9.3)
     transitivePeerDependencies:
       - '@sanity/types'
       - typescript
@@ -8667,6 +8664,15 @@ snapshots:
     dependencies:
       uuid: 11.1.0
 
+  '@sanity/visual-editing-csm@3.0.11(@sanity/client@7.24.0)(@sanity/types@6.0.0(@types/react@19.2.2))(typescript@5.9.3)':
+    dependencies:
+      '@sanity/client': 7.24.0
+      '@sanity/visual-editing-types': 2.0.10(@sanity/client@7.24.0)(@sanity/types@6.0.0(@types/react@19.2.2))
+      valibot: 1.4.2(typescript@5.9.3)
+    transitivePeerDependencies:
+      - '@sanity/types'
+      - typescript
+
   '@sanity/visual-editing-csm@3.0.11(@sanity/client@7.24.0)(@sanity/types@6.5.0(@types/react@19.2.2))(typescript@5.9.3)':
     dependencies:
       '@sanity/client': 7.24.0
@@ -8687,6 +8693,12 @@ snapshots:
       '@sanity/client': 7.24.0
     optionalDependencies:
       '@sanity/types': 6.5.0(@types/react@19.2.2)
+
+  '@sanity/visual-editing-types@2.0.10(@sanity/client@7.24.0)(@sanity/types@6.0.0(@types/react@19.2.2))':
+    dependencies:
+      '@sanity/client': 7.24.0
+    optionalDependencies:
+      '@sanity/types': 6.0.0(@types/react@19.2.2)
 
   '@sanity/visual-editing-types@2.0.10(@sanity/client@7.24.0)(@sanity/types@6.5.0(@types/react@19.2.2))':
     dependencies:
