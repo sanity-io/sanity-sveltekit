@@ -4,7 +4,14 @@
   import { onMount } from 'svelte';
   import type { VisualEditingProps } from '../types';
 
-  const { components, plugins, refresh, zIndex }: VisualEditingProps = $props();
+  const {
+    components,
+    keepStegaOnCopy,
+    onSuspiciousStega,
+    plugins,
+    refresh,
+    zIndex
+  }: VisualEditingProps = $props();
 
   let navigate: HistoryAdapterNavigate | undefined;
   let navigatingFromUpdate = false;
@@ -36,6 +43,11 @@
           }
         }
       },
+      keepStegaOnCopy,
+      // Wrap so a changing callback identity does not require re-init; always call the latest prop
+      onSuspiciousStega: onSuspiciousStega
+        ? (reports) => onSuspiciousStega?.(reports)
+        : undefined,
       plugins,
       refresh: (payload) => {
         function refreshDefault() {

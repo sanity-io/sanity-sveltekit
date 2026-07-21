@@ -6,6 +6,8 @@
     children,
     components,
     enabled = true,
+    keepStegaOnCopy,
+    onSuspiciousStega,
     plugins,
     refresh,
     zIndex
@@ -19,6 +21,13 @@
 
 {#if enabled}
   {#await import('./VisualEditingComponent.svelte') then { default: VisualEditing }}
-    <VisualEditing {components} {plugins} {refresh} {zIndex} />
+    <VisualEditing
+      {components}
+      {keepStegaOnCopy}
+      {onSuspiciousStega}
+      {plugins}
+      {refresh}
+      {zIndex}
+    />
   {/await}
 {/if}
