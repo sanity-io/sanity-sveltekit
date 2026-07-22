@@ -1,4 +1,4 @@
-export { getEnvironment, setEnvironment, type DraftEnvironment } from './environment';
-export { getPerspective, setPerspective, type PreviewPerspective } from './perspective';
-export { getIsPreviewing, setIsPreviewing } from './previewing';
-export { getLoader, setLoader, type LoaderType } from './loader';
+export { getEnvironment, type DraftEnvironment } from './environment';
+export { getPerspective, type PreviewPerspective } from './perspective';
+export { getIsPreviewing } from './previewing';
+export { getLoader, type LoaderType } from './loader';
