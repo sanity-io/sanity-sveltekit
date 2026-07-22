@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v2.0.0...sveltekit-v2.1.0) (2026-07-22)
+
+
+### Features
+
+* expose keepStegaOnCopy and onSuspiciousStega on VisualEditing ([#222](https://github.com/sanity-io/sanity-sveltekit/issues/222)) ([30a1eff](https://github.com/sanity-io/sanity-sveltekit/commit/30a1eff9e768e0e9c369577f27c36f59146bd999))
+
 ## [2.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v1.0.6...sveltekit-v2.0.0) (2026-06-15)
 
 
