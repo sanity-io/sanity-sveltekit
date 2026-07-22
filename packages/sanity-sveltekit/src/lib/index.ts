@@ -28,6 +28,7 @@ export { optimisticActor } from './optimistic/optimisticActor';
 
 // Types
 export type { SanityLocals, VisualEditingProps } from './types';
+export type { SuspiciousStegaReport } from '@sanity/visual-editing';
 
 // Studio
 export { default as SanityStudio } from './studio/SanityStudio.svelte';
