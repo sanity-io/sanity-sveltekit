@@ -18,6 +18,12 @@ See the [Visual Editing with SvelteKit](https://www.sanity.io/docs/visual-editin
 
 ### Embedded Sanity Studio
 
+Embedding a Studio requires the `sanity` package, install it alongside `@sanity/sveltekit`:
+
+```bash
+npm install sanity
+```
+
 Create and populate a `.env.local` file at the root of your application if it does not already exist.
 
 ```bash
@@ -52,7 +58,7 @@ Next, create a catch all route using [rest parameters](https://svelte.dev/docs/k
 <!-- src/routes/studio/[...catchall]/+page.svelte -->
 <script lang="ts">
   import config from '$lib/sanity/sanity.config';
-  import { SanityStudio } from '@sanity/sveltekit';
+  import { SanityStudio } from '@sanity/sveltekit/studio';
 </script>
 
 <SanityStudio {config} />

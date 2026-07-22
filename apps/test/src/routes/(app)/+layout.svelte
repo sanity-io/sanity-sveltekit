@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { PreviewMode, VisualEditing } from '@sanity/sveltekit';
+  import { PreviewMode } from '@sanity/sveltekit/preview';
+  import { VisualEditing } from '@sanity/sveltekit/visual-editing';
   import type { LayoutProps } from './$types';
   import Header from '$lib/components/Header.svelte';
 
