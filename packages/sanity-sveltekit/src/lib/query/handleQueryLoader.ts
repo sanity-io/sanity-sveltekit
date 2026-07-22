@@ -65,10 +65,13 @@ export const handleQueryLoader = (config?: HandleQueryLoaderConfig): Handle => {
   if (!client) throw new Error('No client instance provided to handleLoadQuery');
 
   const loadQuery = config?.loadQuery || defaultLoadQuery;
-  const { perspective, useCdn } = client.config();
 
   return async ({ event, resolve }) => {
-    // Set `sanity` properties on the `event.locals` object
+    // handlePreviewMode uses 'drafts', but loadQuery needs 'previewDrafts' (published + drafts).
+    const previewEnabled = event.locals.sanity?.previewEnabled ?? false;
+    const perspective: ClientPerspective = previewEnabled ? 'previewDrafts' : 'published';
+    const useCdn = !previewEnabled;
+
     setLocals({
       event,
       loadQuery,
