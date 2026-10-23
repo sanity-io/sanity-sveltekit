@@ -1,9 +1,9 @@
 import type { HistoryRefresh, VisualEditingOptions } from '@sanity/visual-editing';
 import type {
+  ClientParams,
   ClientPerspective,
   ClientReturn,
   ContentSourceMap,
-  QueryParams,
   ResolveStudioUrl,
   ResponseQueryOptions,
   SanityClient,
@@ -74,13 +74,38 @@ export type WithEncodeDataAttribute = {
   encodeDataAttribute: EncodeDataAttributeFunction;
 };
 
-export interface SanityFetchOptions<QueryString extends string> {
+/**
+ * A `params` property that is required when `Params` has required keys, which is only the
+ * case for a query branded with `__groqParams`, and optional otherwise.
+ */
+export type ParamsProperty<Params> = {} extends Params ? { params?: Params } : { params: Params };
+
+/**
+ * The positional `params` argument followed by `Rest`, required on the same terms as
+ * {@link ParamsProperty}.
+ */
+export type ParamsArguments<Params, Rest> = {} extends Params
+  ? [params?: Params, options?: Rest]
+  : [params: Params, options?: Rest];
+
+/**
+ * The result of a branded query, or `Fallback` for anything else. Unlike `ClientReturn` this
+ * doesn't look queries up in `SanityQueries`, so helpers that never did keep their result type.
+ * A plain string never matches the optional brand property, so only branded queries reach
+ * `ClientReturn`, which reads the brand before the registry.
+ */
+export type BrandedQueryResult<QueryString extends string, Fallback> = QueryString extends {
+  readonly __groqResult?: unknown;
+}
+  ? ClientReturn<QueryString, Fallback>
+  : Fallback;
+
+export type SanityFetchOptions<QueryString extends string> = {
   query: QueryString;
-  params?: QueryParams | Promise<QueryParams>;
   perspective?: Exclude<ClientPerspective, 'raw'>;
   stega?: boolean;
   tag?: string;
-}
+} & ParamsProperty<ClientParams<QueryString> | Promise<ClientParams<QueryString>>>;
 
 // /** @public */
 export type SanityFetch = <
@@ -88,13 +113,7 @@ export type SanityFetch = <
   const QueryString extends string
 >(
   event: TServerLoadEvent,
-  options: {
-    query: QueryString;
-    params?: QueryParams | Promise<QueryParams>;
-    perspective?: Exclude<ClientPerspective, 'raw'>;
-    stega?: boolean;
-    tag?: string;
-  }
+  options: SanityFetchOptions<QueryString>
 ) => Promise<{
   data: ClientReturn<QueryString>;
   sourceMap: ContentSourceMap | null;
@@ -130,11 +149,19 @@ export type LoadQueryOptions = Pick<
 /**
  * @public
  */
-export type LoadQuery = <QueryResponseResult>(
-  query: string,
-  params?: QueryParams,
-  options?: LoadQueryOptions
-) => Promise<QueryResponseInitial<QueryResponseResult>>;
+export type LoadQuery = <QueryResponseResult = unknown, const QueryString extends string = string>(
+  query: QueryString,
+  ...args: LoadQueryArguments<QueryString>
+) => Promise<QueryResponseInitial<BrandedQueryResult<QueryString, QueryResponseResult>>>;
+
+/**
+ * The `params` and `options` arguments of {@link LoadQuery}.
+ * @public
+ */
+export type LoadQueryArguments<QueryString extends string> = ParamsArguments<
+  ClientParams<QueryString>,
+  LoadQueryOptions
+>;
 
 /**
  * @public
