@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v2.1.0...sveltekit-v2.2.0) (2026-10-23)
+
+
+### Features
+
+* infer types from branded .groq queries ([#228](https://github.com/sanity-io/sanity-sveltekit/issues/228)) ([5dea824](https://github.com/sanity-io/sanity-sveltekit/commit/5dea8242d5e662c129aacef910dc1bdd7ae277c2))
+
 ## [2.1.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v2.0.0...sveltekit-v2.1.0) (2026-07-22)
 
 
