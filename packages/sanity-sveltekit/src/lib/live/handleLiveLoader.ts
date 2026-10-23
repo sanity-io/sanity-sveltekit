@@ -1,4 +1,4 @@
-import type { ClientPerspective, QueryOptions, SanityClient } from '@sanity/client';
+import type { ClientPerspective, QueryOptions, QueryParams, SanityClient } from '@sanity/client';
 import { perspectiveCookieName } from '@sanity/preview-url-secret/constants';
 import type { Handle, RequestEvent } from '@sveltejs/kit';
 import { unstable__serverClient } from '../query/store/createQueryStore';
@@ -67,7 +67,9 @@ const defineSanityFetch = ({
   const studioUrlDefined = typeof clientConfig.stega.studioUrl !== 'undefined';
 
   return async (event, _options) => {
-    const { query, params, stega: _stega, tag = 'svelte-loader.fetch' } = _options;
+    const { stega: _stega, tag = 'svelte-loader.fetch' } = _options;
+    const query: string = _options.query;
+    const params = (await _options.params) as QueryParams | undefined;
 
     const perspective = (_options.perspective || _perspective) as ClientPerspective;
     const useCdn = perspective === 'published';
@@ -85,7 +87,7 @@ const defineSanityFetch = ({
       useCdn
     };
 
-    const { syncTags } = await client.fetch(query, await params, {
+    const { syncTags } = await client.fetch(query, params, {
       ...options,
       resultSourceMap: false,
       returnQuery: false,
@@ -104,7 +106,7 @@ const defineSanityFetch = ({
       }
     }
 
-    const { result, resultSourceMap } = await client.fetch(query, await params, options);
+    const { result, resultSourceMap } = await client.fetch(query, params, options);
 
     return { data: result, sourceMap: resultSourceMap || null, tags };
   };
