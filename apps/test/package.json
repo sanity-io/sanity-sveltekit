@@ -6,6 +6,7 @@
   "scripts": {
     "build": "vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:dev-graph": "node scripts/check-dev-graph.js",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "vite dev",
     "prepare": "svelte-kit sync || echo ''",
@@ -26,6 +27,7 @@
     "@sveltejs/kit": "^2.53.4",
     "@sveltejs/vite-plugin-svelte": "^7.2.0",
     "@tailwindcss/vite": "^4.2.1",
+    "playwright-core": "^1.65.0",
     "svelte": "^5.53.6",
     "svelte-check": "^4.4.4",
     "tailwindcss": "^4.2.1",

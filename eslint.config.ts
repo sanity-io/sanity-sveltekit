@@ -77,6 +77,11 @@ export default defineConfig(
       '@typescript-eslint/no-empty-object-type': 'off'
     }
   },
+  {
+    files: ['apps/test/scripts/**/*.js'],
+    languageOptions: { parserOptions: { projectService: false } },
+    rules: { 'no-console': 'off' }
+  },
 
   // Keep last
   prettier
