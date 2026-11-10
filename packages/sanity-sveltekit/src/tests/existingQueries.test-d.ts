@@ -2,8 +2,10 @@ import type { QueryParams } from '@sanity/client';
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type { Readable } from 'svelte/store';
 import { describe, expectTypeOf, test } from 'vitest';
-import { defineQuery, loadQuery, sanityFetch, useQuery, type SanityLocals } from '$lib';
-import type { LoadQuery, QueryResponseInitial } from '$lib/types';
+import { defineQuery } from '$lib/groq';
+import { sanityFetch } from '$lib/live';
+import { loadQuery, useQuery } from '$lib/query';
+import type { LoadQuery, QueryResponseInitial, SanityLocals } from '$lib/types';
 
 type Building = { _id: string; name: string };
 type Registered = { _id: string; registered: true };

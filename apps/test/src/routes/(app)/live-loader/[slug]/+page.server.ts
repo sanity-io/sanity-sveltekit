@@ -1,4 +1,4 @@
-import { sanityFetch } from '@sanity/sveltekit';
+import { sanityFetch } from '@sanity/sveltekit/live';
 import { buildingQuery } from '$lib/sanity/queries';
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { useQuery } from '@sanity/sveltekit';
+  import { useQuery } from '@sanity/sveltekit/query';
   import BuildingsPage from '$lib/components/BuildingsPage.svelte';
   import type { PageProps } from './$types';
 

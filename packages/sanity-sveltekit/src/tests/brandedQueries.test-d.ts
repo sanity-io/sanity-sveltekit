@@ -1,7 +1,9 @@
 import type { ServerLoadEvent } from '@sveltejs/kit';
 import type { Readable } from 'svelte/store';
 import { describe, expectTypeOf, test } from 'vitest';
-import { loadQuery, sanityFetch, useQuery, type SanityLocals } from '$lib';
+import { sanityFetch } from '$lib/live';
+import { loadQuery, useQuery } from '$lib/query';
+import type { SanityLocals } from '$lib/types';
 
 type Post = { _id: string; title: string | null };
 type PostParams = { slug: string };

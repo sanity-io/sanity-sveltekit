@@ -1,6 +1,6 @@
 <script lang="ts">
   import BuildingPage from '$lib/components/BuildingPage.svelte';
-  import { useQuery } from '@sanity/sveltekit';
+  import { useQuery } from '@sanity/sveltekit/query';
   import type { PageProps } from './$types';
 
   const { data }: PageProps = $props();

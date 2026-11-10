@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { getEnvironment, getIsPreviewing, getPerspective, getLoader } from '@sanity/sveltekit';
+  import {
+    getEnvironment,
+    getIsPreviewing,
+    getPerspective,
+    getLoader
+  } from '@sanity/sveltekit/context';
   import { page } from '$app/state';
   import { resolve } from '$app/paths';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LiveLoader } from '@sanity/sveltekit';
+  import { LiveLoader } from '@sanity/sveltekit/live';
   import { client } from '$lib/sanity/client';
   import Features from '$lib/components/Features.svelte';
   import type { LayoutProps } from './$types';
