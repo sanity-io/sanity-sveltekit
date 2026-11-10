@@ -1,7 +1,7 @@
 import type { ClientPerspective, SanityClient } from '@sanity/client';
 import { type Handle, type RequestEvent } from '@sveltejs/kit';
 import { loadQuery as defaultLoadQuery, unstable__serverClient } from './store/createQueryStore';
-import type { LoadQuery } from '../types';
+import type { LoadQuery, LoadQueryArguments } from '../types';
 
 /**
  * @public
@@ -22,15 +22,17 @@ const defineLoadQuery = ({
   perspective?: ClientPerspective;
   useCdn: boolean;
 }): LoadQuery => {
-  return (query, params, options = {}) => {
+  return <QueryResponseResult, const QueryString extends string>(
+    query: QueryString,
+    ...args: LoadQueryArguments<QueryString>
+  ) => {
+    const [params, options = {}] = args;
     const stega = previewEnabled ? options.stega : false;
 
-    return loadQuery(query, params, {
-      ...options,
-      perspective,
-      useCdn,
-      stega
-    });
+    return loadQuery<QueryResponseResult, QueryString>(
+      query,
+      ...([params, { ...options, perspective, useCdn, stega }] as LoadQueryArguments<QueryString>)
+    );
   };
 };
 

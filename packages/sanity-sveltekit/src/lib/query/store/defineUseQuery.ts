@@ -1,14 +1,19 @@
-import type { QueryParams } from '@sanity/client';
+import type { ClientParams, QueryParams } from '@sanity/client';
 import type {
   QueryStore as CoreQueryStore,
   QueryStoreState as CoreQueryStoreState
 } from '@sanity/core-loader';
 import isEqual from 'fast-deep-equal';
 import { derived, get, writable, type Readable } from 'svelte/store';
-import type { WithEncodeDataAttribute } from '../../types';
+import type {
+  BrandedQueryResult,
+  ParamsArguments,
+  ParamsProperty,
+  QueryResponseInitial,
+  WithEncodeDataAttribute
+} from '../../types';
 import { useEncodeDataAttribute } from '../../useEncodeDataAttribute';
 import { defineStudioUrlStore } from './defineStudioUrlStore';
-import type { QueryResponseInitial } from '../../types';
 import { onMount } from 'svelte';
 import { browser } from '$app/environment';
 
@@ -22,19 +27,47 @@ export interface UseQueryOptions<QueryResponseResult = unknown> {
 /**
  * @public
  */
-export type UseQuery = <QueryResponseResult = unknown, QueryResponseError = unknown>(
-  query:
-    | string
-    | {
-        query: string;
-        params?: QueryParams;
-        options?: UseQueryOptions<QueryResponseResult>;
-      },
-  params?: QueryParams,
-  options?: UseQueryOptions<QueryResponseResult>
-) => Readable<
-  CoreQueryStoreState<QueryResponseResult, QueryResponseError> & WithEncodeDataAttribute
+export type UseQueryObject<QueryString extends string, QueryResponseResult> = {
+  query: QueryString;
+  options?: UseQueryOptions<QueryResponseResult>;
+} & ParamsProperty<ClientParams<QueryString>>;
+
+/**
+ * @public
+ */
+export type UseQueryStore<
+  QueryString extends string,
+  QueryResponseResult,
+  QueryResponseError
+> = Readable<
+  CoreQueryStoreState<BrandedQueryResult<QueryString, QueryResponseResult>, QueryResponseError> &
+    WithEncodeDataAttribute
 >;
+
+/**
+ * @public
+ */
+export interface UseQuery {
+  // Accepts the object form too, so a value typed as either form still resolves
+  <
+    QueryResponseResult = unknown,
+    QueryResponseError = unknown,
+    const QueryString extends string = string
+  >(
+    query: QueryString | UseQueryObject<QueryString, QueryResponseResult>,
+    ...args: ParamsArguments<ClientParams<QueryString>, UseQueryOptions<QueryResponseResult>>
+  ): UseQueryStore<QueryString, QueryResponseResult, QueryResponseError>;
+  // Positional arguments are ignored in the object form, so they never become required
+  <
+    QueryResponseResult = unknown,
+    QueryResponseError = unknown,
+    const QueryString extends string = string
+  >(
+    query: UseQueryObject<QueryString, QueryResponseResult>,
+    params?: QueryParams,
+    options?: UseQueryOptions<QueryResponseResult>
+  ): UseQueryStore<QueryString, QueryResponseResult, QueryResponseError>;
+}
 
 /**
  * @public
