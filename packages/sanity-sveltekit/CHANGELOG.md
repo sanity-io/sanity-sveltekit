@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v2.2.0...sveltekit-v3.0.0) (2026-11-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* split exports into subpaths and slim root barrel ([#211](https://github.com/sanity-io/sanity-sveltekit/issues/211))
+
+### Features
+
+* split exports into subpaths and slim root barrel ([#211](https://github.com/sanity-io/sanity-sveltekit/issues/211)) ([6531ad7](https://github.com/sanity-io/sanity-sveltekit/commit/6531ad744e52165e5e925e075aecfd154d8502cb))
+
 ## [2.2.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v2.1.0...sveltekit-v2.2.0) (2026-10-23)
 
 
