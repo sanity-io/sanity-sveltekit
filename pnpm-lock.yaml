@@ -81,6 +81,9 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.2.1
         version: 4.2.1(vite@8.1.5(@types/node@24.9.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
+      playwright-core:
+        specifier: ^1.65.0
+        version: 1.65.0
       svelte:
         specifier: ^5.53.6
         version: 5.53.6
@@ -4739,6 +4742,11 @@ packages:
 
   player.style@0.3.0:
     resolution: {integrity: sha512-ny1TbqA2ZsUd6jzN+F034+UMXVK7n5SrwepsrZ2gIqVz00Hn0ohCUbbUdst/2IOFCy0oiTbaOXkSFxRw1RmSlg==}
+
+  playwright-core@1.65.0:
+    resolution: {integrity: sha512-vNSKgH6YqtN7cdT/L334zo0a+YwkrpicyrHJlWWPIm/Q+Nn2SWInil01oT0mbu96U4GgoRtCYQD9CzJQgju+lA==}
+    engines: {node: '>=20'}
+    hasBin: true
 
   pluralize-esm@9.0.5:
     resolution: {integrity: sha512-Kb2dcpMsIutFw2hYrN0EhsAXOUJTd6FVMIxvNAkZCMQLVt9NGZqQczvGpYDxNWCZeCWLHUPxQIBudWzt1h7VVA==}
@@ -10744,6 +10752,8 @@ snapshots:
       media-chrome: 4.14.0(react@19.2.7)
     transitivePeerDependencies:
       - react
+
+  playwright-core@1.65.0: {}
 
   pluralize-esm@9.0.5: {}
 
