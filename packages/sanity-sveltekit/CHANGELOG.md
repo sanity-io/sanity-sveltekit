@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v3.0.0...sveltekit-v3.0.1) (2026-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update @sanity/visual-editing to v6 ([#233](https://github.com/sanity-io/sanity-sveltekit/issues/233)) ([858986c](https://github.com/sanity-io/sanity-sveltekit/commit/858986cc3bcd8076f9a9f3dba0599e1cfdad48ae))
+
 ## [3.0.0](https://github.com/sanity-io/sanity-sveltekit/compare/sveltekit-v2.2.0...sveltekit-v3.0.0) (2026-11-12)
 
 
