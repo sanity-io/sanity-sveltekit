@@ -75,12 +75,12 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "^7.0.1",
     "@sveltejs/kit": "^2.53.4",
-    "@sveltejs/package": "^2.5.7",
-    "@sveltejs/vite-plugin-svelte": "^7.2.0",
-    "publint": "^0.3.17",
+    "@sveltejs/package": "^2.5.8",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "publint": "^0.3.25",
     "sanity": "^6.0.0",
     "svelte": "^5.53.6",
-    "svelte-check": "^4.4.4",
+    "svelte-check": "^4.7.8",
     "typescript": "^5.9.3",
     "vite": "^8.1.5",
     "vitest": "^4.1.10"
