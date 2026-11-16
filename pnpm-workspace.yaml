@@ -13,4 +13,6 @@ lockfile:
 overrides:
   '@sanity/sveltekit': 'workspace:*'
 
+strictDepBuilds: false
+
 verifyDepsBeforeRun: false
