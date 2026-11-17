@@ -42,6 +42,10 @@
     "./context": {
       "types": "./dist/context/index.d.ts",
       "svelte": "./dist/context/index.js"
+    },
+    "./image": {
+      "types": "./dist/image/index.d.ts",
+      "svelte": "./dist/image/index.js"
     }
   },
   "svelte": "./dist/index.js",
@@ -66,6 +70,7 @@
     "@sanity/client": "^7.28.0",
     "@sanity/comlink": "^4.0.1",
     "@sanity/core-loader": "^2.0.12",
+    "@sanity/image-url": "^2.2.0",
     "@sanity/presentation-comlink": "^2.1.0",
     "@sanity/preview-url-secret": "^4.0.7",
     "@sanity/visual-editing": "^6.2.0",
@@ -77,6 +82,7 @@
     "@sveltejs/kit": "^2.53.4",
     "@sveltejs/package": "^2.5.7",
     "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "@vercel/stega": "^1.1.0",
     "publint": "^0.3.17",
     "sanity": "^6.0.0",
     "svelte": "^5.53.6",

@@ -56,9 +56,6 @@ importers:
       '@sanity/client':
         specifier: ^7.28.0
         version: 7.28.0
-      '@sanity/image-url':
-        specifier: ^2.1.1
-        version: 2.1.1
       groq:
         specifier: ^6.0.0
         version: 6.0.0
@@ -111,6 +108,9 @@ importers:
       '@sanity/core-loader':
         specifier: ^2.0.12
         version: 2.0.12(@sanity/types@6.23.0(@types/react@19.2.2)(vitest@4.1.10(@types/node@24.9.1)(jsdom@29.1.1(@noble/hashes@2.0.1))(vite@8.1.5(@types/node@24.9.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))))(typescript@5.9.3)
+      '@sanity/image-url':
+        specifier: ^2.2.0
+        version: 2.2.0
       '@sanity/presentation-comlink':
         specifier: ^2.1.0
         version: 2.2.3(@sanity/types@6.23.0(@types/react@19.2.2)(vitest@4.1.10(@types/node@24.9.1)(jsdom@29.1.1(@noble/hashes@2.0.1))(vite@8.1.5(@types/node@24.9.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))))
@@ -139,6 +139,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^7.2.0
         version: 7.2.0(svelte@5.53.6)(vite@8.1.5(@types/node@24.9.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0))
+      '@vercel/stega':
+        specifier: ^1.1.0
+        version: 1.1.0
       publint:
         specifier: ^0.3.17
         version: 0.3.17
@@ -2233,8 +2236,8 @@ packages:
     resolution: {integrity: sha512-2sb7tbdMDuUuVyocJPKG0gZBiOML/ovCe+mJiLrv1j69ODOfa2LfUjDVR+dRw/A/+XuxoJSSP8ebG7NiwTOgIA==}
     engines: {node: '>=18'}
 
-  '@sanity/image-url@2.1.1':
-    resolution: {integrity: sha512-qVXsF1teWR6FO3ZFAz46HDcRU+E6EQkpyncPnkGOzeJ1PgnaOiWMVbiSrZtX10s3txzzu/tAjKwbxbGHfDWgGw==}
+  '@sanity/image-url@2.2.0':
+    resolution: {integrity: sha512-6uJnWhDJMlfwsnHwlnHpUgXCo5kmH3Wv/ERXalgRJHiBhChO/UYhIBTOxdwXTP01EkeoDARn6/+e3Vf+db+JIA==}
     engines: {node: '>=20.19.0'}
 
   '@sanity/import@6.0.3':
@@ -8347,7 +8350,7 @@ snapshots:
       lodash: 4.18.1
       ts-brand: 0.2.0
 
-  '@sanity/image-url@2.1.1':
+  '@sanity/image-url@2.2.0':
     dependencies:
       '@sanity/signed-urls': 2.0.2
 
@@ -8569,7 +8572,7 @@ snapshots:
       '@sanity/diff-match-patch': 3.2.0
       '@sanity/diff-patch': 6.0.0
       '@sanity/id-utils': 1.0.0
-      '@sanity/image-url': 2.1.1
+      '@sanity/image-url': 2.2.0
       '@sanity/json-match': 1.0.5
       '@sanity/message-protocol': 0.23.0
       '@sanity/mutate': 0.18.2(vitest@4.1.10(@types/node@24.9.1)(jsdom@29.1.1(@noble/hashes@2.0.1))(vite@8.1.5(@types/node@24.9.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0)))(xstate@5.33.4)
@@ -8597,7 +8600,7 @@ snapshots:
       '@sanity/diff-match-patch': 3.2.0
       '@sanity/diff-patch': 6.0.0
       '@sanity/id-utils': 1.0.0
-      '@sanity/image-url': 2.1.1
+      '@sanity/image-url': 2.2.0
       '@sanity/json-match': 1.0.5
       '@sanity/message-protocol': 0.23.0
       '@sanity/mutate': 0.18.2(vitest@4.1.10(@types/node@24.9.1)(jsdom@29.1.1(@noble/hashes@2.0.1))(vite@8.1.5(@types/node@24.9.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.22.4)(yaml@2.9.0)))(xstate@5.33.4)
@@ -11458,7 +11461,7 @@ snapshots:
       '@sanity/eventsource': 5.0.4
       '@sanity/icons': 3.8.0(react@19.2.7)
       '@sanity/id-utils': 1.0.0
-      '@sanity/image-url': 2.1.1
+      '@sanity/image-url': 2.2.0
       '@sanity/insert-menu': 3.0.8(@emotion/is-prop-valid@1.2.2)(@sanity/types@6.0.0(@types/react@19.2.2))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.1.19(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/logos': 2.2.2(react@19.2.7)
       '@sanity/media-library-types': 1.8.0(@sanity/types@6.0.0(@types/react@19.2.2))
@@ -11600,7 +11603,7 @@ snapshots:
       '@sanity/eventsource': 5.0.4
       '@sanity/icons': 3.8.0(react@19.2.7)
       '@sanity/id-utils': 1.0.0
-      '@sanity/image-url': 2.1.1
+      '@sanity/image-url': 2.2.0
       '@sanity/insert-menu': 3.0.8(@emotion/is-prop-valid@1.2.2)(@sanity/types@6.0.0(@types/react@19.2.2))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(styled-components@6.1.19(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@sanity/logos': 2.2.2(react@19.2.7)
       '@sanity/media-library-types': 1.8.0(@sanity/types@6.0.0(@types/react@19.2.2))

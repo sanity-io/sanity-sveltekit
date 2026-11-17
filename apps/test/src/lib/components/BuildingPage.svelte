@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { urlFor } from '$lib/sanity/image';
+  import { Image, isImageWithAsset } from '@sanity/sveltekit/image';
   import type { BuildingQueryResult } from '$lib/sanity/types';
 
   const {
@@ -17,7 +17,15 @@
   {#if building.images}
     <div class="mt-3 gap-3 grid grid-cols-1 sm:grid-cols-2">
       {#each building.images as image (image._key)}
-        <img src={urlFor(image).toString()} alt={building.name} />
+        {#if isImageWithAsset(image)}
+          <Image
+            src={image}
+            alt={building.name ?? ''}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            placeholder="blur"
+            class="w-full h-auto"
+          />
+        {/if}
       {/each}
     </div>
   {/if}

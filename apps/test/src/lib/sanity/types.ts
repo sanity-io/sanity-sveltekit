@@ -12,7 +12,9 @@
  * ---------------------------------------------------------------------------------
  */
 
-// Source: schema.json
+export declare const internalGroqTypeReferenceTo: unique symbol;
+
+// Source: src/lib/sanity/schema.json
 export type Building = {
   _id: string;
   _type: 'building';
@@ -200,31 +202,31 @@ export type AllSanitySchemaTypes =
   | Geopoint
   | Slug
   | SanityAssetSourceData;
-export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/lib/sanity/queries.ts
+
+// Source: src/lib/sanity/queries.ts
 // Variable: buildingsQuery
-// Query: *[_type == "building" && defined(slug.current)]{  _id,  name,  "architect": architect->name,  "slug": slug.current,  images[]} | order(name asc)
+// Query: fn image::asset($asset) = $asset->{url, metadata{lqip}};fn image::field($image) = $image{_key, crop, hotspot, "asset": image::asset(asset)};*[_type == "building" && defined(slug.current)]{  _id,  name,  "architect": architect->name,  "slug": slug.current,  "images": images[]{...image::field(@)}} | order(name asc)
 export type BuildingsQueryResult = Array<{
   _id: string;
   name: string | null;
   architect: string | null;
   slug: string | null;
   images: Array<{
-    asset?: {
-      _ref: string;
-      _type: 'reference';
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: 'image';
     _key: string;
+    crop: SanityImageCrop | null;
+    hotspot: SanityImageHotspot | null;
+    asset: {
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
   }> | null;
 }>;
+
+// Source: src/lib/sanity/queries.ts
 // Variable: buildingQuery
-// Query: *[_type == "building" && slug.current == $slug]{  _id,  name,  yearCompleted,  "architect": architect->name,  "slug": slug.current,  images[]}[0]
+// Query: fn image::asset($asset) = $asset->{url, metadata{lqip}};fn image::field($image) = $image{_key, crop, hotspot, "asset": image::asset(asset)};*[_type == "building" && slug.current == $slug]{  _id,  name,  yearCompleted,  "architect": architect->name,  "slug": slug.current,  "images": images[]{...image::field(@)}}[0]
 export type BuildingQueryResult = {
   _id: string;
   name: string | null;
@@ -232,17 +234,15 @@ export type BuildingQueryResult = {
   architect: string | null;
   slug: string | null;
   images: Array<{
-    asset?: {
-      _ref: string;
-      _type: 'reference';
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: 'image';
     _key: string;
+    crop: SanityImageCrop | null;
+    hotspot: SanityImageHotspot | null;
+    asset: {
+      url: string | null;
+      metadata: {
+        lqip: string | null;
+      } | null;
+    } | null;
   }> | null;
 } | null;
 
@@ -250,7 +250,7 @@ export type BuildingQueryResult = {
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "building" && defined(slug.current)]{\n  _id,\n  name,\n  "architect": architect->name,\n  "slug": slug.current,\n  images[]\n} | order(name asc)': BuildingsQueryResult;
-    '*[_type == "building" && slug.current == $slug]{\n  _id,\n  name,\n  yearCompleted,\n  "architect": architect->name,\n  "slug": slug.current,\n  images[]\n}[0]': BuildingQueryResult;
+    '\nfn image::asset($asset) = $asset->{url, metadata{lqip}};\nfn image::field($image) = $image{_key, crop, hotspot, "asset": image::asset(asset)};\n\n*[_type == "building" && defined(slug.current)]{\n  _id,\n  name,\n  "architect": architect->name,\n  "slug": slug.current,\n  "images": images[]{...image::field(@)}\n} | order(name asc)': BuildingsQueryResult;
+    '\nfn image::asset($asset) = $asset->{url, metadata{lqip}};\nfn image::field($image) = $image{_key, crop, hotspot, "asset": image::asset(asset)};\n\n*[_type == "building" && slug.current == $slug]{\n  _id,\n  name,\n  yearCompleted,\n  "architect": architect->name,\n  "slug": slug.current,\n  "images": images[]{...image::field(@)}\n}[0]': BuildingQueryResult;
   }
 }
