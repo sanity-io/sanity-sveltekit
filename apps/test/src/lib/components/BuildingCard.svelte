@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { urlFor } from '$lib/sanity/image';
+  import { Image, isImageWithAsset } from '@sanity/sveltekit/image';
   import { page } from '$app/state';
+  import type { BuildingsQueryResult } from '$lib/sanity/types';
 
   const {
     name,
@@ -11,19 +12,23 @@
     name?: string | null;
     slug?: string | null;
     architect?: string | null;
-    images?: Array<{ asset?: { _ref: string } }> | null;
+    images?: BuildingsQueryResult[number]['images'];
   } = $props();
 
   const href = $derived(`${page.url.pathname}/${slug}`);
+  const image = $derived(images?.[0]);
   /* eslint-disable svelte/no-navigation-without-resolve */
 </script>
 
 <a class=" bg-white aspect-[3/4] overflow-hidden relative @container group" {href}>
-  {#if images}
-    <img
-      src={urlFor(images[0]).toString()}
-      alt={name}
-      class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+  {#if isImageWithAsset(image)}
+    <Image
+      src={image}
+      alt={name ?? ''}
+      fill
+      sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+      placeholder="blur"
+      class="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
     />
   {/if}
   <div
